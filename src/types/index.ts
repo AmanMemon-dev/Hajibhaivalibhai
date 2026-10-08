@@ -23,7 +23,8 @@ export interface Product {
   swatch: Swatch; images: string[]; imageFit?: 'cover' | 'contain';
   /** Optional rich detail: replaces the generic facts grid, adds benefit / use lists and a source link. */
   facts?: [string, string][]; benefits?: string[]; useCases?: string[]; source?: { name: string; url: string };
-  basis?: string; texture?: string; materialId?: string;
+  basis?: string;
+  availability?: 'In stock' | 'On order'; texture?: string; materialId?: string;
   /** Reserved for backend-supplied pricing. Never hardcode. */
   price?: { amount: number; currency: string; unit: string };
   datasheetUrl?: string; // PLACEHOLDER: technical sheet link

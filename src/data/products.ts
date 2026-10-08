@@ -130,17 +130,17 @@ const defs: CatDef[] = [
     ],
   },
   {
-    slug: 'bricks-blocks', sizes: ['230×110×75 mm', '600×200×100 mm', '600×200×200 mm'], io: 'Both',
-    specs: { Material: 'See type', 'Compressive strength': 'Per grade (confirm)', Tolerance: 'Dimensionally accurate', Pack: 'Per piece / pallet' },
+    slug: 'bricks-blocks', sizes: ['230×110×75 mm'], io: 'Both',
+    specs: { Supply: 'Per piece or per 1,000; palletised on request', Standard: 'See product (IS 1077, 12894, 2185, 2691, 15658)', Tolerance: 'As per the relevant IS standard' },
     rows: [
-      ['Red Clay Brick (Class I)', 'Clay brick', 'Natural', 'Red', '#b0553a', '#8a3c27', 'brick', 'SW', 'T', 'Kiln-burnt clay bricks with consistent colour and strength.'],
-      ['Fly-ash Brick', 'Fly-ash', 'Natural', 'Grey', '#8d8a85', '#a8a49d', 'brick', 'SW', 'I', 'Eco-friendly bricks with uniform dimensions for neat masonry.'],
-      ['AAC Block 100 mm', 'AAC', 'Natural', 'White-grey', '#d0cfca', '#b2b0a9', 'brick', 'SW', 'M', 'Lightweight autoclaved block for partitions.'],
-      ['AAC Block 200 mm', 'AAC', 'Natural', 'White-grey', '#cdccc7', '#aeaca5', 'brick', 'SW', 'M', 'Thermally efficient block for external walls.'],
-      ['Solid Concrete Block', 'Concrete block', 'Natural', 'Grey', '#8c8a86', '#6e6c68', 'brick', 'SE', 'I', 'High-strength solid blocks for boundary and load-bearing walls.'],
-      ['Hollow Concrete Block', 'Concrete block', 'Natural', 'Grey', '#93918d', '#75736f', 'brick', 'SW', 'I', 'Lighter hollow block for non-load-bearing walls.'],
-      ['Facing Brick', 'Clay brick', 'Textured', 'Terracotta', '#b8654a', '#8e4a34', 'brick', 'WE', 'NT', 'Exposed-brick finish for façades and feature walls.'],
-      ['Paver Block', 'Paver', 'Textured', 'Grey', '#9a9b9d', '#b9babc', 'brick', 'E', 'I', 'Interlocking paver for driveways and plazas.'],
+      ['Red Clay Brick (Class I)', 'Clay brick', 'Natural', 'Red', '#b0553a', '#8a3c27', 'brick', 'SW', 'T', 'Kiln-burnt clay bricks, 230×110×75 mm, for load-bearing and partition walls.'],
+      ['Fly-ash Brick', 'Fly-ash', 'Natural', 'Grey', '#8d8a85', '#a8a49d', 'brick', 'SW', 'I', 'Pressed fly ash bricks with uniform size for neat masonry.'],
+      ['AAC Block 100 mm', 'AAC', 'Natural', 'White-grey', '#d0cfca', '#b2b0a9', 'brick', 'SW', 'M', 'Lightweight 100 mm AAC block for partition walls.'],
+      ['AAC Block 200 mm', 'AAC', 'Natural', 'White-grey', '#cdccc7', '#aeaca5', 'brick', 'SW', 'M', 'Lightweight 200 mm AAC block for external walls.'],
+      ['Solid Concrete Block', 'Concrete block', 'Natural', 'Grey', '#8c8a86', '#6e6c68', 'brick', 'SE', 'I', 'Dense solid concrete blocks for boundary and load-bearing walls.'],
+      ['Hollow Concrete Block', 'Concrete block', 'Natural', 'Grey', '#93918d', '#75736f', 'brick', 'SW', 'I', 'Lighter hollow concrete blocks for non-load-bearing walls.'],
+      ['Facing Brick', 'Clay brick', 'Textured', 'Terracotta', '#b8654a', '#8e4a34', 'brick', 'WE', 'NT', 'Textured clay brick left exposed on façades and feature walls.'],
+      ['Paver Block', 'Paver', 'Textured', 'Grey', '#9a9b9d', '#b9babc', 'brick', 'E', 'I', 'Interlocking concrete paver for driveways, yards and pathways.'],
     ],
   },
   {
@@ -239,6 +239,15 @@ const productImages: Record<string, { src: string; fit: 'cover' | 'contain' }> =
   'wonder-opc-cement': { src: '/products/cement/wonder-opc.jpg', fit: 'cover' },
   'birla-white-cement': { src: '/products/cement/birla-white.jpg', fit: 'cover' },
   'jk-whitemaxx-white-cement': { src: '/products/cement/jk-whitemaxx.jpg', fit: 'cover' },
+  // Bricks and blocks: free-to-use stock photos from Pexels (generic, not our own stock): replace with your own photos when you have them.
+  'red-clay-brick-class-i': { src: '/products/bricks/red-clay-brick.jpg', fit: 'cover' },
+  'fly-ash-brick': { src: '/products/bricks/fly-ash-brick.jpg', fit: 'cover' },
+  'aac-block-100-mm': { src: '/products/bricks/aac-block.jpg', fit: 'cover' },
+  'aac-block-200-mm': { src: '/products/bricks/aac-block.jpg', fit: 'cover' },
+  'solid-concrete-block': { src: '/products/bricks/solid-concrete-block.jpg', fit: 'cover' },
+  'hollow-concrete-block': { src: '/products/bricks/hollow-concrete-block.jpg', fit: 'cover' },
+  'facing-brick': { src: '/products/bricks/facing-brick.jpg', fit: 'cover' },
+  'paver-block': { src: '/products/bricks/paver-block.jpg', fit: 'cover' },
   'german-tmt-fe-500d': { src: '/products/steel/german-tmt-500d.jpg', fit: 'cover' },
   'german-tmt-fe-550d': { src: '/products/steel/german-tmt-550d.jpg', fit: 'cover' },
   'german-crs-green-steel': { src: '/products/steel/german-crs.jpg', fit: 'cover' },
@@ -257,6 +266,9 @@ type Extra = Pick<Product, 'description' | 'sizes' | 'variants' | 'facts' | 'ben
 const AGG_BASIS = 'Typical values from the relevant IS / MoRTH standard, not a test report. Ask us about the stock you will receive.';
 const SAND_BASIS = 'Typical values from the relevant IS standard, not a test report. Ask us about the stock you will receive.';
 const SAND_UNIT_NOTE = '1 brass = 100 cu ft ≈ 2.83 m³';
+// Stock status for the bricks and blocks range: the two bricks are held in stock, everything else is supplied on order.
+const IN_STOCK = new Set(['red-clay-brick-class-i', 'fly-ash-brick']);
+const BRICK_BASIS = 'Typical values from the relevant IS standard, not a test report. Ask us about the strength class and current stock.';
 const AGG_UNITS = ['By the tonne', 'By the truck load'];
 const SAND_UNITS = ['By the brass', 'By the tonne', 'By the truck load'];
 const wonder = (page: string) => ({ name: 'wondercement.com', url: `https://www.wondercement.com/en/products/${page}` });
@@ -544,6 +556,80 @@ const brandDetails: Record<string, Extra> = {
     specifications: { Material: 'Washed natural sand, coarse', Standard: 'IS 383:2016', 'Bulk density': 'About 1.55 t per m³ (approx.)', Unit: SAND_UNIT_NOTE },
     basis: SAND_BASIS,
   },
+
+  // ---- Bricks and blocks. Unbranded; figures are typical values from the relevant IS standard, not test reports.
+  'red-clay-brick-class-i': {
+    description: 'Burnt clay building bricks in the standard 230×110×75 mm size, fired in a kiln for strength and even colour. The usual choice for load-bearing and partition walls.',
+    sizes: ['230×110×75 mm'], variants: [],
+    facts: [['Material', 'Burnt clay'], ['Size', '230×110×75 mm'], ['Standard', 'IS 1077 (common burnt clay building bricks)'], ['Sold', 'Per piece or per 1,000']],
+    benefits: ['Familiar, easy to lay and cut', 'Good compressive strength when well burnt', 'Takes plaster well', 'Long track record in Indian houses'],
+    useCases: ['Load-bearing and partition walls', 'Boundary walls', 'Foundation masonry (use well-burnt bricks)', 'Plastered walls'],
+    specifications: { Material: 'Burnt clay', Size: '230×110×75 mm', Standard: 'IS 1077', 'Water absorption': 'Up to 20% (classes to 12.5), up to 15% above (IS 1077)', 'Strength classes': 'Set by compressive strength; ask for the class you need', Supply: 'Loose or palletised' },
+    basis: BRICK_BASIS,
+  },
+  'fly-ash-brick': {
+    description: 'Bricks made from fly ash, with sand or stone dust and a binder, pressed to uniform size. They give straight, even walls and use a waste product from power plants.',
+    sizes: ['230×110×75 mm'], variants: [],
+    facts: [['Material', 'Fly ash with binder'], ['Size', '230×110×75 mm'], ['Standard', 'IS 12894 (fly ash bricks)'], ['Sold', 'Per piece or per 1,000']],
+    benefits: ['Uniform size, so walls need less plaster and mortar', 'Smooth, even faces', 'Lower weight than clay brick', 'Made from a recycled industrial by-product'],
+    useCases: ['Load-bearing and partition walls', 'Compound walls', 'Plastered masonry'],
+    specifications: { Material: 'Fly ash with binder', Size: '230×110×75 mm', Standard: 'IS 12894', 'Water absorption': 'Up to 20% (IS 12894)', Supply: 'Loose or palletised' },
+    basis: BRICK_BASIS,
+  },
+  'aac-block-100-mm': {
+    description: 'Autoclaved aerated concrete (AAC) block, 100 mm thick. Very light and easy to cut, for internal partition walls.',
+    sizes: ['600×200×100 mm'], variants: [],
+    facts: [['Material', 'Autoclaved aerated concrete'], ['Size', '600×200×100 mm'], ['Standard', 'IS 2185 (Part 3)'], ['Sold', 'Per piece or per cubic metre']],
+    benefits: ['Light weight, so lower load on the structure', 'Large blocks lay quickly', 'Easy to cut, chase and drill', 'Good heat insulation'],
+    useCases: ['Internal partition walls', 'Non-load-bearing walls in framed buildings'],
+    specifications: { Material: 'Autoclaved aerated concrete', Size: '600×200×100 mm', Standard: 'IS 2185 (Part 3)', 'Dry density': 'About 550 to 650 kg/m³ (typical)', Jointing: 'Thin-bed block jointing mortar', Supply: 'Palletised' },
+    basis: BRICK_BASIS,
+  },
+  'aac-block-200-mm': {
+    description: 'Autoclaved aerated concrete (AAC) block, 200 mm thick. Light and thermally efficient, for external walls of framed buildings.',
+    sizes: ['600×200×200 mm'], variants: [],
+    facts: [['Material', 'Autoclaved aerated concrete'], ['Size', '600×200×200 mm'], ['Standard', 'IS 2185 (Part 3)'], ['Sold', 'Per piece or per cubic metre']],
+    benefits: ['Light weight, so lower load on the structure', 'Large blocks lay quickly', 'Good heat insulation for cooler rooms', 'Easy to cut and chase'],
+    useCases: ['External walls of framed buildings', 'Infill walls in RCC structures', 'Lift shafts and service enclosures'],
+    specifications: { Material: 'Autoclaved aerated concrete', Size: '600×200×200 mm', Standard: 'IS 2185 (Part 3)', 'Dry density': 'About 550 to 650 kg/m³ (typical)', Jointing: 'Thin-bed block jointing mortar', Supply: 'Palletised' },
+    basis: BRICK_BASIS,
+  },
+  'solid-concrete-block': {
+    description: 'Solid cement concrete blocks, 400 mm long. Strong and dense, for boundary walls, load-bearing walls and retaining work.',
+    sizes: ['400×200×200 mm', '400×200×150 mm', '400×200×100 mm'], variants: [],
+    facts: [['Material', 'Cement concrete'], ['Length × height', '400×200 mm'], ['Thickness', '100, 150 or 200 mm'], ['Standard', 'IS 2185 (Part 1)'], ['Sold', 'Per piece']],
+    benefits: ['Dense and strong', 'Large size lays faster than brick', 'Uniform, square faces', 'Suits exposed and ground-level use'],
+    useCases: ['Boundary and compound walls', 'Load-bearing walls', 'Retaining and plinth walls'],
+    specifications: { Material: 'Cement concrete', Size: '400×200 mm face, 100/150/200 mm thick', Standard: 'IS 2185 (Part 1)', Strength: 'Strength grade per IS 2185 (Part 1); ask for the grade you need', Supply: 'Palletised or loose' },
+    basis: BRICK_BASIS,
+  },
+  'hollow-concrete-block': {
+    description: 'Hollow cement concrete blocks, 400 mm long. Lighter than solid blocks, for walls that do not carry heavy loads.',
+    sizes: ['400×200×200 mm', '400×200×150 mm', '400×200×100 mm'], variants: [],
+    facts: [['Material', 'Cement concrete, hollow'], ['Length × height', '400×200 mm'], ['Thickness', '100, 150 or 200 mm'], ['Standard', 'IS 2185 (Part 1)'], ['Sold', 'Per piece']],
+    benefits: ['Lighter than solid blocks', 'Hollow cores let you place reinforcement and concrete', 'Lays quickly with fewer joints', 'Lower cost per square metre of wall'],
+    useCases: ['Non-load-bearing and infill walls', 'Partition walls', 'Compound walls with reinforced cores'],
+    specifications: { Material: 'Cement concrete, hollow', Size: '400×200 mm face, 100/150/200 mm thick', Standard: 'IS 2185 (Part 1)', Strength: 'Strength grade per IS 2185 (Part 1); ask for the grade you need', Supply: 'Palletised or loose' },
+    basis: BRICK_BASIS,
+  },
+  'facing-brick': {
+    description: 'Burnt clay facing bricks with a textured, even finish, made to be left exposed. For façades and feature walls where you want the brick to show.',
+    sizes: ['230×110×75 mm'], variants: [],
+    facts: [['Material', 'Burnt clay, textured'], ['Size', '230×110×75 mm'], ['Standard', 'IS 2691 (burnt clay facing bricks)'], ['Sold', 'Per piece']],
+    benefits: ['Attractive finish with no plaster needed', 'Weather-resistant when well burnt', 'Durable, with low maintenance'],
+    useCases: ['Exposed brick façades', 'Feature walls', 'Compound walls and gate pillars'],
+    specifications: { Material: 'Burnt clay, textured', Size: '230×110×75 mm', Standard: 'IS 2691', Finish: 'Textured; colour varies a little between batches', Supply: 'Loose or palletised' },
+    basis: BRICK_BASIS,
+  },
+  'paver-block': {
+    description: 'Precast concrete interlocking paver blocks for driveways, yards and pathways. Choose the thickness by traffic load.',
+    sizes: ['60 mm thick', '80 mm thick', '100 mm thick'], variants: [],
+    facts: [['Material', 'Precast cement concrete'], ['Thickness', '60, 80 or 100 mm'], ['Standard', 'IS 15658 (precast concrete blocks for paving)'], ['Sold', 'Per square metre or per piece']],
+    benefits: ['Interlocking pattern spreads load', 'Free-draining joints', 'Single blocks can be lifted and replaced', 'Non-slip surface'],
+    useCases: ['Driveways and parking', 'Yards and plazas', 'Pathways and footpaths', 'Factory and industrial yards (use 80 to 100 mm)'],
+    specifications: { Material: 'Precast cement concrete', Thickness: '60, 80 or 100 mm, chosen by traffic', Standard: 'IS 15658', Strength: 'Grade rises with thickness and traffic; see IS 15658', Bedding: 'Sand bedding and joint sand', Supply: 'Palletised' },
+    basis: BRICK_BASIS,
+  },
 };
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -567,7 +653,10 @@ export const products: Product[] = defs.flatMap((d) =>
       swatch, images: productImages[slugify(name)] ? [productImages[slugify(name)].src] : [], imageFit: productImages[slugify(name)]?.fit, datasheetUrl: '#', // PLACEHOLDER
     };
     const extra = brandDetails[slugify(name)];
-    return extra ? { ...item, ...extra } : item;
+    const out = extra ? { ...item, ...extra } : item;
+    if (d.slug !== 'bricks-blocks') return out;
+    const availability = IN_STOCK.has(out.slug) ? 'In stock' : 'On order';
+    return { ...out, availability, facts: [...(out.facts ?? []), ['Availability', availability]], specifications: { ...out.specifications, Availability: availability } };
   }),
 );
 

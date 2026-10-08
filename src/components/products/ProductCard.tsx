@@ -19,7 +19,7 @@ export function ProductCard({ p, view = 'grid' }: { p: Product; view?: 'grid' | 
       </Link>
       <button onClick={() => { wish.toggle(p.slug); }} aria-pressed={liked} aria-label={liked ? 'Remove from wishlist' : 'Save to wishlist'} className="absolute right-2 top-2 h-11 w-11 grid place-items-center rounded-full bg-bg/80 backdrop-blur text-lg">{liked ? '♥' : '♡'}</button>
       <div className="p-4 md:p-5 flex flex-col flex-1">
-        <p className="text-xs text-muted uppercase tracking-wider">{p.materialType}</p>
+        <p className="text-xs text-muted uppercase tracking-wider">{p.materialType}{p.availability && <span className={cn('ml-2 normal-case tracking-normal', p.availability === 'In stock' ? 'text-accent' : '')}>· {p.availability}</span>}</p>
         <h3 className="font-display text-xl mt-1 leading-tight"><Link href={productHref(p)} className="hover:text-accent">{p.name}</Link></h3>
         <p className="text-sm text-muted mt-2 line-clamp-2">{p.applications.join(' · ')}</p>
         {/* Price slot: rendered only when the backend supplies p.price */}

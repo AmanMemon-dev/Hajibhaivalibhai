@@ -42,7 +42,7 @@ export function ProductDetail({ p }: { p: Product }) {
         {!p.images.length && <div className="flex gap-2 mt-3" role="tablist" aria-label="Product views">{(['swatch', 'texture', '3d'] as const).map((t) => <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={cn('min-h-[44px] px-4 rounded text-sm border', tab === t ? 'bg-ink text-bg border-ink' : 'hairline hover:border-ink')}>{t === 'swatch' ? 'Overview' : t === 'texture' ? 'Texture' : '3D / 360°'}</button>)}</div>}
       </div>
       <div>
-        <Badge>{p.materialType}</Badge><h1 className="text-step-3 mt-4">{p.name}</h1><p className="mt-4 text-muted text-step-0">{p.description}</p>
+        <Badge>{p.materialType}</Badge>{p.availability && <Badge className="ml-2">{p.availability}</Badge>}<h1 className="text-step-3 mt-4">{p.name}</h1><p className="mt-4 text-muted text-step-0">{p.description}</p>
         {p.price && <p className="mt-4 font-display text-3xl">{p.price.currency} {p.price.amount} <span className="text-base text-muted">/ {p.price.unit}</span></p>}
         {hasVariants && <div className="mt-6"><p className="eyebrow mb-2">{['cement', 'steel'].includes(p.categorySlug) ? 'Grade' : 'Variant'}</p><div className="flex flex-wrap gap-2">{p.variants.map((x) => <Chip key={x.id} active={variant === x.id} onClick={() => setVariant(x.id)}>{x.colorHex && <span className="inline-block h-3 w-3 rounded-full border border-black/20 mr-2 align-middle" style={{ background: x.colorHex }} />}{x.label}</Chip>)}</div></div>}
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
