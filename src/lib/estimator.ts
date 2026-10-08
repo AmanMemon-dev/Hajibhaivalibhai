@@ -279,11 +279,11 @@ export function estimate(inp: EstimatorInput): Result {
 
   const L2 = (key: string, group: string, label: string, qty: number, unit: string, productSlug?: string, productName?: string, note?: string): Line => ({ key, group, label, qty, unit, productSlug, productName, note });
   const lines: Line[] = [
-    L2('cement', 'Cement', 'Cement (PPC/OPC, 50 kg bags)', up(cementBags), 'bags', 'ppc-cement', 'PPC Cement', `${r1(cementBags * 0.05)} tonnes incl. ${inp.wasteCement}% wastage`),
+    L2('cement', 'Cement', 'Cement (PPC/OPC, 50 kg bags)', up(cementBags), 'bags', 'wonder-ppc-cement', 'Wonder PPC Cement', `${r1(cementBags * 0.05)} tonnes incl. ${inp.wasteCement}% wastage`),
     L2('sand', 'Sand', 'Sand (M-sand / river sand)', r2(sandM3), 'm³', 'm-sand-concrete-grade', 'M-Sand (Concrete Grade)', `≈ ${r1(sandM3 / N.brassM3)} brass · ${Math.round(sandM3 * N.cft)} cft · ${r1(sandM3 * N.sandTonnePerM3)} t`),
     L2('agg20', 'Aggregates', '20 mm aggregate (RCC)', r2(aggM3 * 0.7), 'm³', '20-mm-aggregate', '20 mm Aggregate', `≈ ${r1((aggM3 * 0.7) * N.aggTonnePerM3)} t`),
     L2('agg10', 'Aggregates', '10 mm aggregate (slabs, lintels, stairs)', r2(aggM3 * 0.3), 'm³', '10-mm-aggregate', '10 mm Aggregate', `≈ ${r1((aggM3 * 0.3) * N.aggTonnePerM3)} t`),
-    L2('steel', 'Steel', 'TMT reinforcement bars', Math.round(steelTotal), 'kg', 'tmt-bar-fe-500d', 'TMT Bar Fe 500D', `${r2(steelTotal / 1000)} tonnes incl. ${inp.wasteSteel}% wastage`),
+    L2('steel', 'Steel', 'TMT reinforcement bars', Math.round(steelTotal), 'kg', 'german-tmt-fe-500d', 'German TMT Fe 500D', `${r2(steelTotal / 1000)} tonnes incl. ${inp.wasteSteel}% wastage`),
     L2('wire', 'Steel', 'Binding wire', Math.round(wire), 'kg', undefined, undefined, '~0.8% of steel weight'),
     L2('units', 'Walls', u.name + (inp.wallType === 'aac' || inp.wallType === 'concrete-block' ? ` (${Math.round(inp.extThickness * 1000)}/${Math.round(inp.intThickness * 1000)} mm)` : ''), up(wallUnits), 'nos', wallProduct(inp.wallType), undefined, `incl. ${inp.wasteBrick}% breakage · wall volume ${r1(wallVol)} m³`),
   ];

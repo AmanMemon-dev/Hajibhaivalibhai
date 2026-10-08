@@ -84,18 +84,16 @@ const defs: CatDef[] = [
     slug: 'cement', sizes: ['50 kg bag', '25 kg bag', '20 kg bag', '5 kg pack'], io: 'Both',
     specs: { Pack: 'Bag / pack', 'Standard': 'IS compliant (confirm)', 'Shelf life': 'Up to 90 days', Storage: 'Dry, off the floor' },
     rows: [
-      ['OPC 53 Grade Cement', 'OPC', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'High-strength ordinary Portland cement for RCC, beams and fast-track structures.'],
-      ['OPC 43 Grade Cement', 'OPC', 'Natural', 'Grey', '#93938f', '#6f6f6b', 'speckle', 'SN', 'I', 'General-purpose OPC suitable for plaster, masonry and flooring.'],
-      ['PPC Cement', 'PPC', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'Blended cement for durable residential construction and plastering.'],
-      ['UltraTech Weather Plus Cement', 'UltraTech', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'UltraTech Weather Plus cement for residential construction, masonry and plastering. Ask us for the right grade for your job.'],
-      ['UltraTech Super Cement', 'UltraTech', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'SN', 'I', 'UltraTech Super cement for general building work. Ask us which grade and pack size suits your project.'],
-      ['UltraTech Premium Cement', 'UltraTech', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'UltraTech Premium cement for structural work such as beams, columns and slabs. Ask us for the grade and pack size.'],
-      ['UltraTech Super Plus Cement', 'UltraTech', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'S', 'I', 'UltraTech Super Plus cement for demanding building work. Ask us for the grade and pack size.'],
-      ['Wonder Xtreme Cement', 'Wonder Cement', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'Wonder Xtreme, the top performance cement in the Wonder Cement range, for structural and high-demand work.'],
-      ['Wonder Plus Cement', 'Wonder Cement', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'Wonder Plus, the premium cement in the Wonder Cement range, for everyday builds from homes to larger projects.'],
-      ['Wonder PPC Cement', 'PPC · Wonder Cement', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'Wonder Cement Portland Pozzolana cement for durable residential construction, masonry and plastering.'],
-      ['Wonder OPC Cement', 'OPC · Wonder Cement', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'Wonder Cement ordinary Portland cement for RCC, beams, slabs and work that needs high early strength.'],
-      ['White Cement', 'White cement', 'Natural', 'White', '#f0efeb', '#cfcdc5', 'speckle', 'N', 'mL', 'Fine white cement for finishing, terrazzo and decorative work.'],
+      ['UltraTech Weather Plus Cement', 'UltraTech Cement', 'Water repellent', 'Grey', '#8a8c88', '#65675f', 'speckle', 'S', 'I', ''],
+      ['UltraTech Super Cement', 'OPC · UltraTech Cement', 'OPC 53 Grade', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', ''],
+      ['UltraTech Premium Cement', 'OPC · UltraTech Cement', 'OPC 53 Grade', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', ''],
+      ['UltraTech Super Plus Cement', 'OPC · UltraTech Cement', 'OPC 53 Grade', 'Grey', '#8a8c88', '#65675f', 'speckle', 'S', 'I', ''],
+      ['Wonder Xtreme Cement', 'Blended · Wonder Cement', 'High performance', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', ''],
+      ['Wonder Plus Cement', 'Premium · Wonder Cement', 'Premium', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', ''],
+      ['Wonder PPC Cement', 'PPC · Wonder Cement', 'PPC', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', ''],
+      ['Wonder OPC Cement', 'OPC · Wonder Cement', 'OPC 43 & 53 Grade', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', ''],
+      ['Birla White Cement', 'White cement · Birla White', 'White Portland Cement', 'White', '#f0efeb', '#cfcdc5', 'speckle', 'N', 'mL', ''],
+      ['JK WhiteMaxX White Cement', 'White cement · JK Cement', 'White Portland Cement', 'White', '#f0efeb', '#cfcdc5', 'speckle', 'N', 'mL', ''],
       ['Premium Tile Adhesive', 'Adhesive', 'Natural', 'Grey', '#aaaaa5', '#85857f', 'speckle', 'FWB', 'M', 'Polymer-modified adhesive for porcelain, ceramic and stone tiles.'],
       ['Large-format Tile Adhesive', 'Adhesive', 'Natural', 'White', '#d7d7d1', '#b0b0a8', 'speckle', 'FWC', 'M', 'High-bond adhesive for 600×1200 and larger tiles.'],
       ['Epoxy Grout', 'Grout', 'Glossy', 'Multi', '#c0b8a8', '#8b8272', 'solid', 'BKW', 'M', 'Stain-resistant epoxy grout for wet areas and kitchens.'],
@@ -149,8 +147,11 @@ const defs: CatDef[] = [
     slug: 'steel', sizes: ['8–32 mm', '6 m / 12 m lengths', 'Custom cut'], io: 'Both',
     specs: { Grade: 'See product', Certificate: 'Mill test certificate on request', Length: '6 m / 12 m', Finish: 'Mill / galvanised as noted' },
     rows: [
-      ['TMT Bar Fe 500D', 'TMT bar', 'Natural', 'Steel', '#4c5056', '#80868d', 'metal', 'S', 'I', 'Earthquake-resistant ductile reinforcement bars, 8–32 mm.'],
-      ['TMT Bar Fe 550D', 'TMT bar', 'Natural', 'Steel', '#484c52', '#7c828a', 'metal', 'S', 'I', 'Higher-strength bars for heavy structures.'],
+      ['German TMT Fe 500D', 'TMT bar · German TMT', 'Fe 500D', 'Steel', '#4c5056', '#80868d', 'metal', 'S', 'I', ''],
+      ['German TMT Fe 550D', 'TMT bar · German TMT', 'Fe 550D', 'Steel', '#484c52', '#7c828a', 'metal', 'S', 'I', ''],
+      ['German CRS Green Steel', 'Corrosion-resistant TMT · German TMT', 'CRS (Fe 500D / 550D)', 'Steel', '#454a50', '#7a8087', 'metal', 'S', 'I', ''],
+      ['Tata Tiscon 550SD', 'TMT bar · Tata Tiscon', 'Fe 550SD', 'Steel', '#484c52', '#7c828a', 'metal', 'S', 'I', ''],
+      ['Tata Tiscon CRS550D', 'Corrosion-resistant TMT · Tata Tiscon', 'CRS 550D', 'Steel', '#454a50', '#7a8087', 'metal', 'S', 'I', ''],
       ['MS Channel (ISMC)', 'Channel', 'Natural', 'Steel', '#52565c', '#868c93', 'metal', 'SC', 'I', 'Structural channels for frames, purlins and fabrication.'],
       ['MS Angle (ISA)', 'Angle', 'Natural', 'Steel', '#555960', '#8b9198', 'metal', 'S', 'I', 'Equal and unequal angles for trusses and supports.'],
       ['MS Beam (ISMB)', 'Beam', 'Natural', 'Steel', '#4f5359', '#83898f', 'metal', 'SC', 'I', 'I-section beams for structural framing.'],
@@ -236,6 +237,160 @@ const productImages: Record<string, { src: string; fit: 'cover' | 'contain' }> =
   'wonder-plus-cement': { src: '/products/cement/wonder-plus.jpg', fit: 'cover' },
   'wonder-ppc-cement': { src: '/products/cement/wonder-ppc.jpg', fit: 'cover' },
   'wonder-opc-cement': { src: '/products/cement/wonder-opc.jpg', fit: 'cover' },
+  'birla-white-cement': { src: '/products/cement/birla-white.jpg', fit: 'cover' },
+  'jk-whitemaxx-white-cement': { src: '/products/cement/jk-whitemaxx.jpg', fit: 'cover' },
+  'german-tmt-fe-500d': { src: '/products/steel/german-tmt-500d.jpg', fit: 'cover' },
+  'german-tmt-fe-550d': { src: '/products/steel/german-tmt-550d.jpg', fit: 'cover' },
+  'german-crs-green-steel': { src: '/products/steel/german-crs.jpg', fit: 'cover' },
+  'tata-tiscon-550sd': { src: '/products/steel/tata-tiscon-550sd.jpg', fit: 'cover' },
+  'tata-tiscon-crs550d': { src: '/products/steel/tata-tiscon-crs550d.jpg', fit: 'cover' },
+};
+
+/**
+ * Brand cement details. Source: each manufacturer's own website (see `source`), summarised in our words.
+ * Only facts the manufacturers publish are listed. Pack size is the standard 50 kg bag.
+ */
+const PACK = '50 kg bag';
+const TMT_SIZES = ['6 mm', '8 mm', '10 mm', '12 mm', '16 mm', '20 mm and above (on order)'];
+const german = (page: string) => ({ name: 'germansteel.in', url: `https://www.germansteel.in/products/${page}` });
+type Extra = Pick<Product, 'description' | 'sizes' | 'variants' | 'facts' | 'benefits' | 'useCases' | 'source'> & { specifications: Record<string, string> };
+const wonder = (page: string) => ({ name: 'wondercement.com', url: `https://www.wondercement.com/en/products/${page}` });
+const ultratech = (path: string) => ({ name: 'ultratechcement.com', url: `https://www.ultratechcement.com/for-homebuilders/products/${path}` });
+const brandDetails: Record<string, Extra> = {
+  'wonder-opc-cement': {
+    description: 'Ordinary Portland Cement (OPC) from Wonder Cement, available in 43 and 53 grade. Built for high early strength, so construction can move faster without giving up long-term durability.',
+    sizes: [PACK],
+    variants: [{ id: 'g53', label: 'OPC 53 Grade' }, { id: 'g43', label: 'OPC 43 Grade' }],
+    facts: [['Brand', 'Wonder Cement'], ['Cement type', 'Ordinary Portland Cement (OPC)'], ['Pack size', PACK], ['Best for', 'High-rise, bridges and flyovers, pre-cast, mass concrete']],
+    benefits: ['High early strength for faster construction', 'High durability', 'Protection against corrosion in harsh environments', 'Optimised strength-to-cement ratio', 'Low heat of hydration, which limits thermal cracking in mass concrete'],
+    useCases: ['High-rise construction', 'Public infrastructure: bridges, flyovers and industrial foundations', 'Pre-cast concrete segments', 'Mass concrete work'],
+    specifications: { Brand: 'Wonder Cement', Type: 'Ordinary Portland Cement (OPC)', 'Grades available': 'OPC 43 and OPC 53', 'Raw material': 'Limestone from Wonder Cement’s own deposits', 'Alkali, magnesia and free lime': 'Balanced, with low alkali', Chloride: 'Almost negligible', 'Heat of hydration': 'Low', 'Concrete grades it can make': 'M15 to M35', 'Pack size': PACK },
+    source: wonder('opc-cement'),
+  },
+  'ultratech-super-cement': {
+    description: 'UltraTech Super cement, OPC 53 grade, supplied in 50 kg bags. UltraTech has not published a datasheet for it on its website, so ask us for the datasheet and current availability.',
+    sizes: [PACK], variants: [],
+    facts: [['Brand', 'UltraTech Cement'], ['Cement type', 'Ordinary Portland Cement (OPC)'], ['Grade', '53 Grade'], ['Pack size', PACK]],
+    specifications: { Brand: 'UltraTech Cement', Type: 'Ordinary Portland Cement (OPC)', Grade: '53 Grade', 'Pack size': PACK },
+    source: ultratech('overview'),
+  },
+  'wonder-ppc-cement': {
+    description: 'Portland Pozzolana Cement (PPC) from Wonder Cement, made with premium clinker and high-quality fly ash. A strong, durable all-round cement for foundations, RCC and plastering.',
+    sizes: [PACK], variants: [],
+    facts: [['Brand', 'Wonder Cement'], ['Cement type', 'Portland Pozzolana Cement (PPC)'], ['Pack size', PACK], ['Best for', 'Foundations, RCC, plastering, mass concrete']],
+    benefits: ['High compressive strength', 'Well-graded particles from closed-circuit grinding reduce voids, for denser and less permeable concrete', 'Resists sulphate attack', 'Low alkali and low chloride help prevent cracking and steel corrosion', 'Smooth finish on interior and exterior plaster'],
+    useCases: ['Foundations and footings, residential and commercial', 'RCC slabs, beams and columns', 'Plaster work', 'Mass concrete such as retaining walls, bridges and basements'],
+    specifications: { Brand: 'Wonder Cement', Type: 'Portland Pozzolana Cement (PPC)', Composition: 'Premium clinker and high-quality fly ash', 'Sulphate attack': 'Resistant', 'Alkali and chloride': 'Low', 'Pack size': PACK },
+    source: wonder('ppc-cement'),
+  },
+  'wonder-xtreme-cement': {
+    description: 'Wonder Xtreme is a specially blended cement for high-performance concrete, aimed at fast, high-strength slab casting and demanding structures.',
+    sizes: [PACK], variants: [],
+    facts: [['Brand', 'Wonder Cement'], ['Cement type', 'Blended cement for high-performance concrete'], ['Grade', '53 Grade'], ['Pack size', PACK], ['Packaging', 'Multi-layer tamper-proof BOPP bag'], ['Best for', 'Slabs, high-rise, coastal and marine work']],
+    benefits: ['High compressive strength; reactive particles bond well with steel, sand and aggregates', 'Dampness protection: fills tiny capillary gaps in the concrete to block water', 'Built to withstand harsh weather', 'Dense, sulphate-resistant concrete', 'Premium BOPP bag keeps moisture out in transit and storage'],
+    useCases: ['Residential RCC: foundations, columns and slabs', 'High-rise construction', 'Marine and coastal work', 'Public infrastructure'],
+    specifications: { Brand: 'Wonder Cement', Type: 'Specially blended cement', Grade: '53 Grade', Strength: 'Extreme early strength (manufacturer claim)', Packaging: 'Multi-layer tamper-proof BOPP bag', 'Pack size': PACK },
+    source: wonder('xtreme-cement'),
+  },
+  'wonder-plus-cement': {
+    description: 'Wonder Plus is Wonder Cement’s premium offering, positioned a step above PPC. It has the highest share of ultra-fine “Wonder Particles” (3–30 micron) for denser concrete and a smooth plaster finish.',
+    sizes: [PACK], variants: [],
+    facts: [['Brand', 'Wonder Cement'], ['Cement type', 'Premium cement, a step above PPC'], ['Grade', '53 Grade'], ['Pack size', PACK], ['Packaging', 'Tamper-proof laminated AD*STAR bag'], ['Best for', 'Foundation to roof, plastering']],
+    benefits: ['High strength and density: fine particles fill micro voids, so concrete is stronger and more impermeable', 'Maximum coverage per bag', 'Low heat of hydration, low alkali, low chloride and sulphate resistance, which reduce cracking', 'Tamper-proof bag keeps the cement fresh from plant to site'],
+    useCases: ['Foundations, columns, slabs and RCC', 'High-rise construction', 'Plaster work, interior and exterior', 'Mass concrete work'],
+    specifications: { Brand: 'Wonder Cement', Type: 'Premium cement, a step above PPC', Grade: '53 Grade', 'Fine particles': 'Highest share of 3–30 micron Wonder Particles', 'Heat of hydration': 'Low', 'Alkali and chloride': 'Low', 'Sulphate resistance': 'Yes', Packaging: 'Tamper-proof laminated AD*STAR bag', 'Pack size': PACK },
+    source: wonder('plus-cement'),
+  },
+  'birla-white-cement': {
+    description: 'Premium White Portland Cement from Birla White (Aditya Birla Group). Made for wall finishing, decorative work and refined interiors, with high whiteness and fine particles for an even, bright finish.',
+    sizes: ['1 kg', '5 kg', '25 kg', '50 kg'], variants: [],
+    facts: [['Brand', 'Birla White'], ['Cement type', 'White Portland Cement'], ['Whiteness', '89%+ (Hunter scale)'], ['Pack sizes', '1, 5, 25 and 50 kg'], ['Best for', 'Wall finishing, decorative and interior work']],
+    benefits: ['Better coverage for an even finish', 'Smooth finish even when blended with pigments', 'Walls look brighter and more vibrant', 'High compressive strength'],
+    useCases: ['Wall plastering and finishing', 'Decorative work', 'Refined interiors'],
+    specifications: { Brand: 'Birla White (Aditya Birla Group)', Type: 'White Portland Cement', Whiteness: '89%+ on the Hunter Whiteness Scale', Fineness: '370–400 Blaine', 'Compressive strength': '60 MPa', 'Pack sizes': '1, 5, 25 and 50 kg' },
+    source: { name: 'birlawhite.com', url: 'https://www.birlawhite.com/products/white-cement/white-cement' },
+  },
+  'jk-whitemaxx-white-cement': {
+    description: 'JKC WhiteMaxX is a white Portland cement from JK Cement that combines strength with a sparkling white, smooth matt finish. Used for walls, ceilings, mosaic tiles and terrazzo flooring.',
+    sizes: ['1 kg', '5 kg', '25 kg', '40 kg', '50 kg'], variants: [],
+    facts: [['Brand', 'JK Cement'], ['Cement type', 'White Portland Cement'], ['Whiteness', 'Up to 90%'], ['Pack sizes', '1, 5, 25, 40 and 50 kg'], ['Best for', 'Walls, ceilings, mosaic tiles, terrazzo']],
+    benefits: ['Sparkling whiteness', 'Superior compressive strength', 'Smooth matt finish', 'No curing required'],
+    useCases: ['Smooth interior and exterior walls and ceilings', 'Mosaic tiles', 'Terrazzo flooring', 'Ornamental and decorative objects', 'Covering minor cracks and pores before repainting'],
+    specifications: { Brand: 'JK Cement', Type: 'White Portland Cement', Whiteness: 'Up to 90% (manufacturer claim)', Coats: 'Generally 2 coats cover a wall evenly', Curing: 'Not required', 'Shelf life': '6–12 months', 'Pack sizes': '1, 5, 25, 40 and 50 kg' },
+    source: { name: 'jkcement.com', url: 'https://www.jkcement.com/whitemaxx-white-cement/' },
+  },
+  'ultratech-weather-plus-cement': {
+    description: 'UltraTech Weather Plus is a water-repellent cement. It is designed to fill the tiny pores in concrete and break the links between capillaries, helping keep dampness out of foundations, walls and the roof.',
+    sizes: [PACK], variants: [],
+    facts: [['Brand', 'UltraTech Cement'], ['Cement type', 'Water-repellent cement'], ['Pack size', PACK], ['Packaging', 'Tamper-proof bag'], ['Best for', 'Whole structure: foundation, walls and roof']],
+    benefits: ['Better dampness prevention', 'Better protection against rusting of steel in RCC', 'Higher durability', 'Tamper-proof bag limits loss in transport and keeps the cement in good condition longer'],
+    useCases: ['Foundations', 'Walls', 'Roof slabs', 'UltraTech recommends using it for the entire structure'],
+    specifications: { Brand: 'UltraTech Cement', Type: 'Water-repellent cement', Action: 'Fills tiny pores and breaks capillary interconnection', Packaging: 'Tamper-proof bag', 'Pack size': PACK },
+    source: ultratech('ultratech-building-solution/ultratech-weather-plus'),
+  },
+  'ultratech-premium-cement': {
+    description: 'UltraTech Premium cement, OPC 53 grade, supplied in 50 kg bags. UltraTech describes Premium as a solid, sustainable and durable solution for construction needs. UltraTech has not published a datasheet for it on its website, so ask us for the datasheet and current availability.',
+    sizes: [PACK], variants: [],
+    facts: [['Brand', 'UltraTech Cement'], ['Cement type', 'Ordinary Portland Cement (OPC)'], ['Grade', '53 Grade'], ['Pack size', PACK]],
+    specifications: { Brand: 'UltraTech Cement', Type: 'Ordinary Portland Cement (OPC)', Grade: '53 Grade', 'Pack size': PACK },
+    source: ultratech('overview'),
+  },
+
+  'ultratech-super-plus-cement': {
+    description: 'UltraTech Super Plus cement, OPC 53 grade, supplied in 50 kg bags. UltraTech has not published a datasheet for it on its website, so ask us for the datasheet and current availability.',
+    sizes: [PACK], variants: [],
+    facts: [['Brand', 'UltraTech Cement'], ['Cement type', 'Ordinary Portland Cement (OPC)'], ['Grade', '53 Grade'], ['Pack size', PACK]],
+    specifications: { Brand: 'UltraTech Cement', Type: 'Ordinary Portland Cement (OPC)', Grade: '53 Grade', 'Pack size': PACK },
+    source: ultratech('overview'),
+  },
+
+  // ---- Steel (TMT bars). Sizes: 6, 8, 10, 12 and 16 mm in stock; 20 mm and above on order.
+  'german-tmt-fe-500d': {
+    description: 'German TMT Fe 500D reinforcement bars, made with the TMX (Thermex) quenching and self-tempering process for strength, ductility and weldability. Made by German Steel in Gujarat.',
+    sizes: TMT_SIZES, variants: [],
+    facts: [['Brand', 'German TMT'], ['Grade', 'Fe 500D'], ['Standard', 'IS 1786:2008'], ['Sizes in stock', '6, 8, 10, 12 and 16 mm'], ['On order', '20 mm and above']],
+    benefits: ['Tough tempered outer layer with a ductile core', 'Extra strength and ductility', 'Higher weldability', 'Super bonding with concrete', 'Better fire resistance than plain bars', 'Made without costly alloys'],
+    useCases: ['Foundations, footings and plinth beams', 'Columns, beams and slabs', 'General RCC reinforcement as the structural design requires'],
+    specifications: { Brand: 'German TMT (German Steel)', Grade: 'Fe 500D', 'Minimum yield strength': '500 MPa (grade designation)', Standard: 'IS 1786:2008', Process: 'TMX (Thermex) quenching and self-tempering', 'Sizes in stock': '6, 8, 10, 12 and 16 mm', 'On order': '20 mm and above', Certifications: 'ISO 9001:2015, ISO 14001:2015, ISO 45001:2018 (company)' },
+    source: german('tmt-bars'),
+  },
+  'german-tmt-fe-550d': {
+    description: 'German TMT Fe 550D reinforcement bars: the higher-strength grade for heavier structures. Made with the TMX (Thermex) quenching and self-tempering process by German Steel in Gujarat.',
+    sizes: TMT_SIZES, variants: [],
+    facts: [['Brand', 'German TMT'], ['Grade', 'Fe 550D'], ['Standard', 'IS 1786:2008'], ['Sizes in stock', '6, 8, 10, 12 and 16 mm'], ['On order', '20 mm and above']],
+    benefits: ['Higher yield strength than Fe 500D', 'Extra strength and ductility', 'Higher weldability', 'Super bonding with concrete', 'Better fire resistance than plain bars', 'Made without costly alloys'],
+    useCases: ['Heavily loaded columns, beams and slabs', 'Foundations and footings', 'General RCC reinforcement as the structural design requires'],
+    specifications: { Brand: 'German TMT (German Steel)', Grade: 'Fe 550D', 'Minimum yield strength': '550 MPa (grade designation)', Standard: 'IS 1786:2008', Process: 'TMX (Thermex) quenching and self-tempering', 'Sizes in stock': '6, 8, 10, 12 and 16 mm', 'On order': '20 mm and above', Certifications: 'ISO 9001:2015, ISO 14001:2015, ISO 45001:2018 (company)' },
+    source: german('tmt-bars'),
+  },
+  'german-crs-green-steel': {
+    description: 'German CRS Green Steel is a corrosion-resistant TMT bar for moisture-prone and harsh environments such as coastal areas. Available in Fe 500D CRS and Fe 550D CRS.',
+    sizes: TMT_SIZES,
+    variants: [{ id: 'f500', label: 'Fe 500D CRS' }, { id: 'f550', label: 'Fe 550D CRS' }],
+    facts: [['Brand', 'German TMT'], ['Type', 'Corrosion-resistant TMT bar'], ['Sizes in stock', '6, 8, 10, 12 and 16 mm'], ['On order', '20 mm and above'], ['Best for', 'Coastal and moisture-prone sites']],
+    benefits: ['Corrosion resistance for harsh and humid conditions', '100% D-quality output', 'Performance up to 20–50% above normal TMT bars (manufacturer claim)', 'Lower carbon emissions in production'],
+    useCases: ['Coastal areas', 'Moisture-prone and harsh environments', 'Structures that need a longer service life'],
+    specifications: { Brand: 'German TMT (German Steel)', Grades: 'Fe 500D CRS and Fe 550D CRS', Type: 'Corrosion-resistant TMT (CRS) bar', 'Sizes in stock': '6, 8, 10, 12 and 16 mm', 'On order': '20 mm and above' },
+    source: german('crs-green-steel'),
+  },
+  'tata-tiscon-550sd': {
+    description: 'Tata Tiscon 550SD is a Fe 550SD super-ductile TMT rebar made from virgin iron ore with the Temp-core online quenching process. Built for beams, columns and foundations, and for seismic and coastal zones.',
+    sizes: TMT_SIZES, variants: [],
+    facts: [['Brand', 'Tata Tiscon'], ['Grade', 'Fe 550SD'], ['Standard', 'IS 1786:2008 · IS 13920:2016'], ['Sizes in stock', '6, 8, 10, 12 and 16 mm'], ['On order', '20 mm and above']],
+    benefits: ['Minimum yield strength of 570 MPa', 'High UTS/YS ratio and elongation for earthquake resistance', 'Can reduce the steel needed for the same design', 'Low sulphur and phosphorus', 'Tight weight tolerance: ±5% up to 10 mm, ±3% for 12 and 16 mm (Tata’s claim)', 'Described by Tata as India’s first GreenPro-certified rebar'],
+    useCases: ['Beams, columns and foundations', 'Residential projects and individual homes', 'High-rises and commercial towers', 'Earthquake-prone and coastal zones', 'Infrastructure'],
+    specifications: { Brand: 'Tata Tiscon (Tata Steel)', Grade: 'Fe 550SD (super ductile)', Standard: 'IS 1786:2008 and IS 13920:2016', 'Minimum yield strength': '570 MPa', 'Minimum tensile strength': '655 MPa', 'Minimum UTS/YS ratio': '1.15', 'Minimum total elongation': '16%', 'Carbon (max)': '0.25%', 'Sulphur and phosphorus': 'Each below 0.04%, combined below 0.075%', Process: 'Temp-core online quenching, virgin iron ore', 'Sizes in stock': '6, 8, 10, 12 and 16 mm', 'On order': '20 mm and above' },
+    source: { name: 'tatatiscon.co.in', url: 'https://www.tatatiscon.co.in/550-sd-tmt-rebars' },
+  },
+  'tata-tiscon-crs550d': {
+    description: 'Tata Tiscon CRS550D is a corrosion-resistant, super-ductile rebar. Copper and chromium form a protective layer on the bar surface that slows corrosion, which suits coastal, humid and industrial sites.',
+    sizes: TMT_SIZES, variants: [],
+    facts: [['Brand', 'Tata Tiscon'], ['Grade', 'CRS 550D'], ['Type', 'Corrosion-resistant super-ductile rebar'], ['Sizes in stock', '6, 8, 10, 12 and 16 mm'], ['On order', '20 mm and above']],
+    benefits: ['Minimum yield strength of 570 MPa', 'Protective oxide layer slows corrosion', 'Better ductility and energy absorption for seismic performance', 'Can reduce the steel needed and speed up construction', 'No special handling needed'],
+    useCases: ['Coastal and high-humidity areas', 'Areas with a high groundwater table', 'Industrial and heavy-rain locations', 'Earthquake-resistant construction'],
+    specifications: { Brand: 'Tata Tiscon (Tata Steel)', Grade: 'CRS 550D (corrosion resistant, super ductile)', 'Minimum yield strength': '570 MPa', 'Carbon (max)': '0.25%', 'Sulphur and phosphorus (max)': '0.035% each', 'Carbon equivalent (max)': '0.61', 'Copper + chromium (max)': '0.40%', 'Sizes in stock': '6, 8, 10, 12 and 16 mm', 'On order': '20 mm and above' },
+    source: { name: 'tatatiscon.co.in', url: 'https://tatatiscon.co.in/tata-tiscon-crs550d' },
+  },
 };
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -244,7 +399,7 @@ export const products: Product[] = defs.flatMap((d) =>
   d.rows.map((r, i): Product => {
     const [name, materialType, finish, color, base, accent, pattern, apps, styles, description] = r;
     const swatch: Swatch = { base, accent, pattern };
-    return {
+    const item: Product = {
       id: `${d.slug}-${String(i + 1).padStart(3, '0')}`,
       slug: slugify(name),
       name, categorySlug: d.slug, materialType, finish, color, colorHex: base,
@@ -258,6 +413,8 @@ export const products: Product[] = defs.flatMap((d) =>
       ],
       swatch, images: productImages[slugify(name)] ? [productImages[slugify(name)].src] : [], imageFit: productImages[slugify(name)]?.fit, datasheetUrl: '#', // PLACEHOLDER
     };
+    const extra = brandDetails[slugify(name)];
+    return extra ? { ...item, ...extra } : item;
   }),
 );
 
