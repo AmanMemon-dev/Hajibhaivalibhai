@@ -1,26 +1,38 @@
-@import "tailwindcss";
+@tailwind base; @tailwind components; @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: 243 243 240; --surface: 255 255 255; --ink: 12 12 13; --muted: 96 98 101; --line: 212 212 206; --stone: 230 230 225;
+  --accent: 214 63 18; --accent-ink: 255 255 255;
+  --font-display: 'Archivo', 'Arial Narrow', sans-serif; --font-sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif; --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+html { scroll-behavior: auto; -webkit-text-size-adjust: 100%; }
+body { background: rgb(var(--bg)); color: rgb(var(--ink)); font-family: var(--font-sans); font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, .font-display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.035em; line-height: 0.98; font-stretch: 105%; }
+::selection { background: rgb(var(--accent) / .35); }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 4px; }
+.container-x { width: 100%; max-width: 1360px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+.eyebrow { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .02em; text-transform: uppercase; color: rgb(var(--ink)); font-weight: 500; }
+.eyebrow::before { content: ''; width: 8px; height: 8px; background: rgb(var(--accent)); flex: none; }
+.glass { background: rgb(var(--surface) / .9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgb(var(--line)); }
+.hairline { border-color: rgb(var(--line)); }
+.no-scrollbar::-webkit-scrollbar { display: none; } .no-scrollbar { scrollbar-width: none; }
+/* Modern thin scrollbars everywhere: overlay-style thumb, no track, appears darker on hover */
+* { scrollbar-width: thin; scrollbar-color: rgb(var(--ink) / .22) transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: rgb(var(--ink) / .2); border-radius: 999px; border: 2px solid transparent; background-clip: content-box; }
+*::-webkit-scrollbar-thumb:hover { background: rgb(var(--ink) / .4); background-clip: content-box; }
+*::-webkit-scrollbar-corner { background: transparent; }
+.skeleton { background: linear-gradient(90deg, rgb(var(--stone)) 25%, rgb(var(--line)) 50%, rgb(var(--stone)) 75%); background-size: 200% 100%; animation: sk 1.4s infinite; }
+@keyframes sk { to { background-position: -200% 0; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { animation: marquee 32s linear infinite; }
+input, select, textarea { font: inherit; }
+.field { width: 100%; min-height: 48px; padding: 10px 14px; background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 2px; color: rgb(var(--ink)); transition: border-color .15s, box-shadow .15s; }
+.field:focus { outline: none; border-color: rgb(var(--accent)); box-shadow: 0 0 0 2px rgb(var(--accent) / .25); }
+.field[aria-invalid='true'] { border-color: #c0392b; }
+label.lbl { display: block; font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; font-weight: 500; margin-bottom: 6px; color: rgb(var(--ink)); }
+.hint { font-size: .75rem; color: rgb(var(--muted)); margin-top: 4px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; } .marquee { animation: none; } }
+@media print { header, footer, .no-print, .floating { display: none !important; } body { background: #fff; color: #000; } .print-only { display: block !important; } }
+.print-only { display: none; }

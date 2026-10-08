@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hajibhai Valibhai — Building Materials Platform
 
-## Getting Started
+A premium, static, backend-ready Next.js site: material catalogue, 3D room configurator, whole-building material estimator, calculators, compare / project list, quote and WhatsApp flows.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in WhatsApp, phone, email, site URL
+npm run dev                  # http://localhost:3000
+npm run build                # static export → ./out  (deploy anywhere: Netlify, Vercel, S3, cPanel)
+npm run start                # serve ./out locally
 ```
+Node 18.18+ (tested on Node 22).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What is inside
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Area | Where |
+|---|---|
+| Pages (App Router) | `src/app` |
+| Components by feature | `src/components/{layout,navigation,hero,materials,products,filters,search,configurator,inspiration,projects,quote,contact,compare,3d,ui,home}` |
+| Content data (no content in components) | `src/data/*.ts` |
+| Data service layer (swap for REST/GraphQL later) | `src/services/api.ts` |
+| Global state (Zustand) | `src/store/index.ts` (theme, selection, compare, wishlist, ui, configurator with undo/redo) |
+| Estimator engine + norms | `src/lib/estimator.ts` |
+| Design tokens | `src/app/globals.css` + `tailwind.config.ts` |
+| i18n (EN / हिन्दी / ગુજરાતી) | `src/i18n/index.ts` |
+| Business details (placeholders) | `src/lib/business.ts` + `.env.example` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Whole-building estimator (`/estimator`)
 
-## Learn More
+Enter plan length × width (feet or metres) or built-up area, floors, floor height, concrete grade, column grid, wall material (clay / modular / fly-ash brick, AAC, concrete block), mortar and plaster mixes, openings, tile size and layout, bathrooms and kitchens, paint and waterproofing, occupants and wastage. It returns:
 
-To learn more about Next.js, take a look at the following resources:
+- Cement (bags), sand (m³ / brass / cft / tonnes), 10 & 20 mm aggregate, TMT steel + binding wire
+- Bricks or blocks (with mortar or thin-bed adhesive)
+- Plaster, screed, tiles (floor, bathroom, wall), adhesive, grout
+- Putty, primer, interior/exterior paint, waterproofing
+- CPVC / SWR pipe, fittings, overhead tank size, sanitaryware counts, aluminium windows
+- Where the cement goes, concrete volumes per element, a sanity check against typical ranges, and your own optional rates → cost
+- Add everything to My Selection, request a quote, WhatsApp, print/PDF, CSV, shareable link
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Important:** results are *planning-grade estimates* from standard Indian site practice (IS 456, IS 1661/2402, IS 1786, IS 2250, NBC 2016 water demand etc.). They are **not** a structural design or a building-bylaw compliance check. Footings, bar schedules, setbacks, FAR and seismic provisions must come from a structural engineer / architect and your local authority. Every constant is in `NORMS` inside `src/lib/estimator.ts` so an engineer can tune it. Review these constants with a qualified engineer before presenting figures to customers.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How to…
 
-## Deploy on Vercel
+**Add a category** — append an object to `src/data/categories.ts`. Routes, mega menu, filters, sitemap and search pick it up. Add its row group to `defs` in `src/data/products.ts`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Add a product** — append a row to the category's `rows` in `src/data/products.ts` (format documented at the top of the file).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Add a configurator material** — append to `src/data/materials.ts`. Without `texture` it uses a procedural texture generated from `color` + `pattern`. With images:
+```ts
+{ id: 'marble-white-01', name: 'Carrara White', texture: '/textures/marble-white.jpg', normalMap: '/textures/marble-white-normal.jpg', roughness: 0.35, metalness: 0, repeat: [2,2], surfaces: ['floor','wall'], kind: 'marble' }
+```
+Put files in `public/textures/`.
+
+**Use real 3D models (GLB)** — rooms are procedural (`src/components/3d/Rooms.tsx`). To use a model, load it with drei's `useGLTF` (add Draco/KTX2 compressed files to `public/models`) inside `RoomScene` and map mesh names to surface keys. Keep the procedural room as the fallback.
+
+**Replace placeholders** — search the code for `PLACEHOLDER` / “Placeholder”: business details, brands, stats (`XX+`), testimonials, timeline, projects, team, map, technical sheets. Nothing invented is presented as real.
+
+**Real photography** — product, category and gallery visuals are generated by `components/ui/Swatch.tsx`. Add image URLs to `Product.images` / `InspirationSpace` and swap the `<Swatch>` for `next/image`-style `<img>` in `ProductCard`, `ProductDetail`, inspiration and project pages.
+
+## Connect a backend later
+
+1. Set `NEXT_PUBLIC_API_URL`.
+2. Replace the bodies in `src/services/api.ts` (`getProducts`, `getProductBySlug`, `getCategories`, `searchMaterials`, `submitQuote`, …) with `fetch` calls. Signatures stay the same, so the UI is unchanged.
+3. `submitQuote(req: QuoteRequest)` is where quotes go to your CRM / email / WhatsApp Business API. Models: `docs/data-models.md`.
+4. For dynamic data at scale move from `output: 'export'` to ISR/SSR in `next.config.mjs`.
+5. Not built yet (by design): inventory, pricing, accounts, admin dashboard, CMS, order management, AI advisor, AR, room-upload.
+
+## Performance, accessibility, SEO, PWA
+
+- Three.js loads only via `next/dynamic` + IntersectionObserver; DPR capped (1.5 mobile / 2 desktop), shadows off on mobile, `frameloop="demand"` unless auto-rotating; no-WebGL / low-power / reduced-motion users get a 2D preview with the same data and quote flow.
+- Keyboard navigation, visible focus, skip link, labelled forms, `prefers-reduced-motion`, 44–48px touch targets, semantic landmarks.
+- Per-page metadata, Open Graph, JSON-LD (LocalBusiness, Product, BreadcrumbList, FAQ, Article), `sitemap.xml`, `robots.txt`, clean slugs. GA4 via `NEXT_PUBLIC_GA4_ID`.
+- PWA: `public/manifest.webmanifest`, `public/sw.js` (registered in production). Add PNG icons (192/512) for best install support.
+
+## Final checklist
+
+| Item | Status |
+|---|---|
+| Responsive 375 → 1920 (no horizontal overflow on any route) | Verified with automated browser test |
+| One `<h1>` per page, keyboard path through core flows | Verified |
+| 3D fallbacks (no WebGL / low power / reduced motion) | Implemented |
+| End-to-end: search ⌘K, filters, add to project, estimator, 3-step quote, configurator save/URL share | Verified |
+| TypeScript strict, static export builds (177 pages) | Passing |
+| Lighthouse 90+ mobile | **Not measured** — run on your deployed build |
+| Safari / Firefox / Edge / iOS / Android | **Not tested** (only Chromium) — test before launch |
+| Real photos, textures, GLB models, logos, legal text | Needed from you |
+| Hindi / Gujarati translations | Nav, hero and CTAs only; first-pass, needs native review |
+| Backend, CMS, pricing, inventory, auth, payments | Phase 2 |

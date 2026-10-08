@@ -1,0 +1,6 @@
+import type { Metadata } from 'next';
+import { PageHero } from '@/components/layout/PageHero';
+import { ContactForm } from '@/components/contact/ContactForm';
+export const metadata: Metadata = { title: 'Trade, Dealers & Contractors', description: 'Bulk and project supply enquiries for contractors, builders, architects and dealers.' };
+const perks = [['Project lists', 'One consolidated quote for every trade.'], ['Bulk supply', 'Cement, steel, aggregates and stone in volume.'], ['Technical support', 'Specification and substitution advice.'], ['Scheduled delivery', 'Placeholder: confirm terms and coverage.']];
+export default function Page() { return (<><PageHero eyebrow="Trade" title="Built for contractors, architects & dealers." intro="Share your volumes and schedule. We’ll respond with trade terms." crumbs={[{ label: 'Home', href: '/' }, { label: 'Trade' }]} /><div className="container-x pb-16 grid lg:grid-cols-2 gap-12"><div className="grid sm:grid-cols-2 gap-4 content-start">{perks.map(([t, d]) => <div key={t} className="border hairline rounded-lg p-6 bg-surface"><h2 className="font-display text-xl">{t}</h2><p className="text-sm text-muted mt-1">{d}</p></div>)}</div><ContactForm trade /></div></>); }

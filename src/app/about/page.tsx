@@ -1,0 +1,12 @@
+import type { Metadata } from 'next';
+import { PageHero } from '@/components/layout/PageHero';
+import { timeline } from '@/data/site';
+import { Button } from '@/components/ui';
+export const metadata: Metadata = { title: 'About Hajibhai Valibhai', description: 'A traditional building-materials firm with a modern material library — trust, experience and expertise.' };
+const values = [['Trust first', 'Honest advice, fair dealing and materials that are what we say they are.'], ['Material expertise', 'We know how stone, steel, cement and tiles behave on site, not just on paper.'], ['Service approach', 'From one tile to a full project list, we answer quickly and follow through.'], ['Modern tools', 'Visualisers, estimators and quotes online so decisions are faster and clearer.']];
+export default function Page() {
+  return (<><PageHero eyebrow="About" title="Traditional trust. Modern material expertise." intro="Hajibhai Valibhai is a building-materials firm built on relationships and know-how. This site is how we bring that experience online." crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+    <section className="container-x pb-16 grid md:grid-cols-2 gap-5">{values.map(([t, d]) => <div key={t} className="border hairline rounded-lg p-8 bg-surface"><h2 className="font-display text-2xl">{t}</h2><p className="text-muted mt-2">{d}</p></div>)}</section>
+    <section className="container-x pb-16"><h2 className="text-step-2 mb-8">Our journey</h2><ol className="border-l hairline pl-8 space-y-8 max-w-2xl">{timeline.map((t, i) => <li key={i} className="relative"><span className="absolute -left-[37px] top-2 h-3 w-3 rounded-full bg-accent" /><p className="text-accent text-sm tracking-widest">{t.year}</p><h3 className="font-display text-2xl">{t.title}</h3><p className="text-muted">{t.text}</p></li>)}</ol><p className="hint mt-6">Timeline and team are placeholders — add real dates, founders and photographs. We never publish invented numbers or certifications.</p></section>
+    <section className="container-x pb-16"><h2 className="text-step-2 mb-6">Team</h2><div className="grid sm:grid-cols-3 gap-5">{['Founder', 'Operations', 'Technical advisor'].map((r) => <div key={r} className="border border-dashed hairline rounded-lg p-8 text-muted"><div className="h-16 w-16 rounded-full bg-stone mb-4" /><p className="font-display text-xl text-ink">Name</p><p className="text-sm">{r} · placeholder</p></div>)}</div><div className="mt-10"><Button href="/contact/">Talk to us</Button></div></section></>);
+}
