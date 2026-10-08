@@ -287,13 +287,13 @@ export function estimate(inp: EstimatorInput): Result {
     L2('wire', 'Steel', 'Binding wire', Math.round(wire), 'kg', undefined, undefined, '~0.8% of steel weight'),
     L2('units', 'Walls', u.name + (inp.wallType === 'aac' || inp.wallType === 'concrete-block' ? ` (${Math.round(inp.extThickness * 1000)}/${Math.round(inp.intThickness * 1000)} mm)` : ''), up(wallUnits), 'nos', wallProduct(inp.wallType), undefined, `incl. ${inp.wasteBrick}% breakage · wall volume ${r1(wallVol)} m³`),
   ];
-  if (u.thin) lines.push(L2('thinbed', 'Walls', 'Block jointing mortar (thin bed)', Math.round(thinBedKg), 'kg', 'block-jointing-mortar', 'Block Jointing Mortar', `${up(thinBedKg / 25)} × 25 kg bags`));
+  if (u.thin) lines.push(L2('thinbed', 'Walls', 'Block jointing mortar (thin bed)', Math.round(thinBedKg), 'kg', 'asian-paints-block-joining-mortar', 'Asian Paints Block Joining Mortar', `${up(thinBedKg / 25)} × 25 kg bags`));
   lines.push(
     L2('floortile', 'Tiles', 'Floor tiles (living / bedrooms)', r1(floorTileM2), 'm²', 'oak-plank-wood-look-tile', undefined, `${floorPieces} pcs of ${Math.round(inp.tileL * 1000)}×${Math.round(inp.tileW * 1000)} mm incl. ${Math.round((patWaste - 1) * 100)}% wastage`),
     L2('bathfloor', 'Tiles', 'Bathroom floor tiles (anti-skid)', r1(bathFloorTile), 'm²', 'slate-look-anti-skid-tile', undefined, `${inp.bathrooms} bathrooms`),
     L2('walltile', 'Tiles', 'Wall tiles (bathrooms + kitchen)', r1(wallTileM2), 'm²', 'subway-gloss-wall-tile', undefined, 'incl. 10% wastage'),
-    L2('adhesive', 'Tiles', 'Tile adhesive', Math.round(adhesiveKg), 'kg', 'premium-tile-adhesive', 'Premium Tile Adhesive', `${up(adhesiveKg / 20)} × 20 kg bags`),
-    L2('grout', 'Tiles', 'Tile grout', r1(groutKg), 'kg', 'cementitious-tile-grout', 'Cementitious Tile Grout', `${up(groutKg / 5)} × 5 kg packs · ${inp.jointMm} mm joints`),
+    L2('adhesive', 'Tiles', 'Tile adhesive', Math.round(adhesiveKg), 'kg', 'ultratech-tilefixo-royal-nt', 'UltraTech Tilefixo Royal NT', `${up(adhesiveKg / 20)} × 20 kg bags`),
+    L2('grout', 'Tiles', 'Tile grout', r1(groutKg), 'kg', 'asian-paints-smartcare-cement-tile-grout', 'Asian Paints SmartCare Cement Tile Grout', `${inp.jointMm} mm joints`),
   );
   if (inp.paintInterior) lines.push(
     L2('putty', 'Paint', 'Wall putty', Math.round(puttyKg), 'kg', 'wall-putty-white', 'Wall Putty (White)', `${up(puttyKg / 20)} × 20 kg bags · 2 coats`),
