@@ -95,16 +95,6 @@ export const categories: Category[] = [
     swatch: { base: '#4a4f55', accent: '#9aa1a8', pattern: 'metal' },
   },
   {
-    id: 'cat-aluminium', slug: 'aluminium', name: 'Aluminium Sections', group: 'Steel & Metal', tagline: 'Window, door and partition profiles in anodised and powder-coat.',
-    intro: 'Extruded aluminium profiles for sliding windows, doors, façades and partitions in durable finishes.',
-    characteristics: ['Corrosion resistant', 'Lightweight', 'Slim sightlines', 'Anodised / powder-coat'],
-    applications: ['Sliding windows', 'Doors', 'Partitions', 'Façade framing', 'Shopfronts'],
-    types: [{ name: 'Sliding systems', note: '2- and 3-track profiles' }, { name: 'Casement', note: 'Hinged window profiles' }, { name: 'Partition', note: 'Office and bathroom partitions' }],
-    buyingGuide: ['Choose thicker wall sections for large openings.', 'Powder-coat suits coastal exteriors; anodised for a metallic look.', 'Match hardware to the system.', 'Confirm glazing thickness.'],
-    faqs: [faq('Anodised or powder-coated?', 'Anodised keeps a metallic look; powder-coat offers more colours.'), faq('Do you supply glass?', 'Placeholder: confirm glazing services.')],
-    swatch: { base: '#b9bec4', accent: '#e5e8ea', pattern: 'metal' },
-  },
-  {
     id: 'cat-plumbing', slug: 'plumbing', name: 'Plumbing', group: 'Plumbing', tagline: 'CPVC, UPVC, PVC and GI pipes, fittings, valves and tanks.',
     intro: 'A complete plumbing system range for hot and cold water, drainage and storage.',
     characteristics: ['Pressure rated', 'Leak-tested fittings', 'Corrosion resistant', 'Complete systems'],

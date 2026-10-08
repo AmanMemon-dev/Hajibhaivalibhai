@@ -4,7 +4,7 @@ import { Catalogue } from '@/components/filters/Catalogue';
 import { categories, categoryGroups } from '@/data/categories';
 import Link from 'next/link';
 import { Swatch } from '@/components/ui/Swatch';
-export const metadata: Metadata = { title: 'All Materials', description: 'Browse cement, aggregates, sand, bricks, granite, marble, tiles, steel, aluminium, plumbing, sanitaryware and paints. Filter by colour, finish, application and style.' };
+export const metadata: Metadata = { title: 'All Materials', description: 'Browse cement, aggregates, sand, bricks, granite, marble, tiles, steel, plumbing, sanitaryware and paints. Filter by colour, finish, application and style.' };
 export default function Page() {
   return (<>
     <PageHero eyebrow="Material library" title="Every material, one catalogue." intro="Filter by category, colour, finish, application and style. Add to your project list or request one quote." crumbs={[{ label: 'Home', href: '/' }, { label: 'Materials' }]} />

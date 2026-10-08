@@ -303,16 +303,15 @@ export function estimate(inp: EstimatorInput): Result {
   lines.push(L2('primer', 'Paint', 'Primer (1 coat)', r1(primerL), 'L', 'acrylic-primer', 'Acrylic Primer'));
   if (wpKg > 0) lines.push(L2('waterproof', 'Paint', 'Waterproof coating (terrace + wet areas)', Math.round(wpKg), 'kg', 'waterproof-coating', 'Waterproof Coating', `${Math.round(wpArea)} m² treated`));
   lines.push(
-    L2('cpvc', 'Plumbing', 'CPVC hot & cold pipe', Math.round(cpvc), 'm', 'cpvc-hot-cold-pipe', 'CPVC Hot & Cold Pipe', `${up(cpvc / 3)} × 3 m lengths`),
-    L2('cpvcfit', 'Plumbing', 'CPVC fittings', fittings, 'pcs', 'cpvc-fittings-set', 'CPVC Fittings Set', 'elbows, tees, couplers, valves'),
-    L2('swr', 'Plumbing', 'SWR drainage pipe', Math.round(swr), 'm', 'swr-drainage-pipe', 'SWR Drainage Pipe', `${up(swr / 3)} × 3 m lengths`),
+    L2('cpvc', 'Plumbing', 'CPVC hot & cold pipe', Math.round(cpvc), 'm', 'supreme-lifeline-cpvc-pipe-cts', 'Supreme Lifeline CPVC Pipe', `${up(cpvc / 3)} × 3 m lengths`),
+    L2('cpvcfit', 'Plumbing', 'CPVC fittings', fittings, 'pcs', 'supreme-lifeline-cpvc-fittings', 'Supreme Lifeline CPVC Fittings', 'elbows, tees, couplers, valves'),
+    L2('swr', 'Plumbing', 'SWR drainage pipe', Math.round(swr), 'm', 'finolex-swr-pipe', 'Finolex SWR Pipe', `${up(swr / 3)} × 3 m lengths`),
     L2('tank', 'Plumbing', 'Overhead water tank', 1, `× ${tank} L`, 'overhead-water-tank-1000-l', undefined, `${inp.occupants} occupants × ${N.waterLpcd} L/day × ${N.overheadFraction * 100}% (NBC 2016 planning figure)`),
     L2('wc', 'Sanitary', 'WC / toilet', inp.bathrooms, 'pcs', 'cera-cuva-wall-hung-toilet'),
     L2('basin', 'Sanitary', 'Wash basin', inp.bathrooms + 1, 'pcs', 'cera-carly-table-top-basin'),
     L2('shower', 'Sanitary', 'Shower set', inp.bathrooms, 'pcs', 'hindware-rain-shower-100-mm-square'),
     L2('faucet', 'Sanitary', 'Faucets / mixers', inp.bathrooms * 3 + inp.kitchens + 1, 'pcs', 'cera-ripple-single-lever-basin-mixer'),
-    L2('drain', 'Sanitary', 'Floor drains', inp.bathrooms + inp.kitchens + 1, 'pcs', 'floor-drain-trap'),
-    L2('windows', 'Openings', 'Aluminium windows', r1(winArea), 'm²', 'slim-sliding-window-profile', undefined, `${inp.windows} windows · ${inp.windowW}×${inp.windowH} m`),
+    L2('drain', 'Sanitary', 'Floor drains', inp.bathrooms + inp.kitchens + 1, 'pcs', 'finolex-swr-floor-trap'),
   );
 
   const g: Result['geometry'] = { L: r2(L), W: r2(W), perimeter: r1(perimeter), areaPerFloor: r1(A), totalBuilt: r1(totalBuilt), carpet: r1(carpet), columns, footingSize: footing, bays: [bx, by], extWallArea: r1(extWallArea), intWallArea: r1(intWallArea), extWallVol: r2(extWallVol), intWallVol: r2(intWallVol) };
