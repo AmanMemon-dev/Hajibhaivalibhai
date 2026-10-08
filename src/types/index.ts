@@ -20,7 +20,7 @@ export interface Product {
   applications: Application[]; styles: Style[]; sizes: string[]; thickness?: string;
   indoorOutdoor: 'Indoor' | 'Outdoor' | 'Both';
   description: string; specifications: Record<string, string>; variants: Variant[];
-  swatch: Swatch; images: string[]; texture?: string; materialId?: string;
+  swatch: Swatch; images: string[]; imageFit?: 'cover' | 'contain'; texture?: string; materialId?: string;
   /** Reserved for backend-supplied pricing. Never hardcode. */
   price?: { amount: number; currency: string; unit: string };
   datasheetUrl?: string; // PLACEHOLDER: technical sheet link

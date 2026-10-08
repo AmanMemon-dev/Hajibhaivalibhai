@@ -87,6 +87,14 @@ const defs: CatDef[] = [
       ['OPC 53 Grade Cement', 'OPC', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'High-strength ordinary Portland cement for RCC, beams and fast-track structures.'],
       ['OPC 43 Grade Cement', 'OPC', 'Natural', 'Grey', '#93938f', '#6f6f6b', 'speckle', 'SN', 'I', 'General-purpose OPC suitable for plaster, masonry and flooring.'],
       ['PPC Cement', 'PPC', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'Blended cement for durable residential construction and plastering.'],
+      ['UltraTech Weather Plus Cement', 'UltraTech', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'UltraTech Weather Plus cement for residential construction, masonry and plastering. Ask us for the right grade for your job.'],
+      ['UltraTech Super Cement', 'UltraTech', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'SN', 'I', 'UltraTech Super cement for general building work. Ask us which grade and pack size suits your project.'],
+      ['UltraTech Premium Cement', 'UltraTech', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'UltraTech Premium cement for structural work such as beams, columns and slabs. Ask us for the grade and pack size.'],
+      ['UltraTech Super Plus Cement', 'UltraTech', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'S', 'I', 'UltraTech Super Plus cement for demanding building work. Ask us for the grade and pack size.'],
+      ['Wonder Xtreme Cement', 'Wonder Cement', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'Wonder Xtreme, the top performance cement in the Wonder Cement range, for structural and high-demand work.'],
+      ['Wonder Plus Cement', 'Wonder Cement', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'Wonder Plus, the premium cement in the Wonder Cement range, for everyday builds from homes to larger projects.'],
+      ['Wonder PPC Cement', 'PPC · Wonder Cement', 'Natural', 'Grey', '#8a8c88', '#65675f', 'speckle', 'SN', 'I', 'Wonder Cement Portland Pozzolana cement for durable residential construction, masonry and plastering.'],
+      ['Wonder OPC Cement', 'OPC · Wonder Cement', 'Natural', 'Grey', '#8e8e8a', '#6b6b67', 'speckle', 'S', 'I', 'Wonder Cement ordinary Portland cement for RCC, beams, slabs and work that needs high early strength.'],
       ['White Cement', 'White cement', 'Natural', 'White', '#f0efeb', '#cfcdc5', 'speckle', 'N', 'mL', 'Fine white cement for finishing, terrazzo and decorative work.'],
       ['Premium Tile Adhesive', 'Adhesive', 'Natural', 'Grey', '#aaaaa5', '#85857f', 'speckle', 'FWB', 'M', 'Polymer-modified adhesive for porcelain, ceramic and stone tiles.'],
       ['Large-format Tile Adhesive', 'Adhesive', 'Natural', 'White', '#d7d7d1', '#b0b0a8', 'speckle', 'FWC', 'M', 'High-bond adhesive for 600×1200 and larger tiles.'],
@@ -213,6 +221,23 @@ const defs: CatDef[] = [
   },
 ];
 
+/**
+ * Product photos. Put the image file in /public/products/... and list it here by product slug.
+ * 'contain' shows the whole picture (best for pack-shots); 'cover' fills the frame (best for photos).
+ * Products without an entry — or whose file is missing — fall back to the generated swatch.
+ */
+const productImages: Record<string, { src: string; fit: 'cover' | 'contain' }> = {
+  // UltraTech: white-background pack-shots (shown whole). Wonder Cement: bag-on-site photos (fill the frame).
+  'ultratech-weather-plus-cement': { src: '/products/cement/ultratech-weather-plus.jpg', fit: 'contain' },
+  'ultratech-super-cement': { src: '/products/cement/ultratech-super.jpg', fit: 'contain' },
+  'ultratech-premium-cement': { src: '/products/cement/ultratech-premium.jpg', fit: 'contain' },
+  'ultratech-super-plus-cement': { src: '/products/cement/ultratech-super-plus.jpg', fit: 'contain' },
+  'wonder-xtreme-cement': { src: '/products/cement/wonder-xtreme.jpg', fit: 'cover' },
+  'wonder-plus-cement': { src: '/products/cement/wonder-plus.jpg', fit: 'cover' },
+  'wonder-ppc-cement': { src: '/products/cement/wonder-ppc.jpg', fit: 'cover' },
+  'wonder-opc-cement': { src: '/products/cement/wonder-opc.jpg', fit: 'cover' },
+};
+
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 export const products: Product[] = defs.flatMap((d) =>
@@ -231,7 +256,7 @@ export const products: Product[] = defs.flatMap((d) =>
         { id: 'v1', label: color, colorHex: base },
         { id: 'v2', label: `${finish === 'Polished' ? 'Honed' : 'Polished'} alternative`, colorHex: accent },
       ],
-      swatch, images: [], datasheetUrl: '#', // PLACEHOLDER
+      swatch, images: productImages[slugify(name)] ? [productImages[slugify(name)].src] : [], imageFit: productImages[slugify(name)]?.fit, datasheetUrl: '#', // PLACEHOLDER
     };
   }),
 );

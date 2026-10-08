@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import type { Product } from '@/types';
-import { Swatch } from '@/components/ui/Swatch';
+import { ProductImage } from '@/components/products/ProductImage';
 import { Badge } from '@/components/ui';
 import { useSelection, useUI, useWishlist } from '@/store';
 import { productHref } from '@/lib/utils';
@@ -14,7 +14,7 @@ export function ProductCard({ p, view = 'grid' }: { p: Product; view?: 'grid' | 
   return (
     <article className={cn('group relative bg-surface border hairline rounded hover:shadow-2 transition-all duration-300', view === 'list' ? 'flex flex-col sm:flex-row' : 'flex flex-col')}>
       <Link href={productHref(p)} className={cn('relative block overflow-hidden', view === 'list' ? 'sm:w-64 shrink-0 aspect-[4/3] sm:aspect-auto' : 'aspect-[4/3]')} aria-label={`View ${p.name}`}>
-        <Swatch swatch={p.swatch} seed={seed} label={`${p.name} swatch`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
+        <ProductImage p={p} seed={seed} label={p.name} swatchClassName="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
         <span className="absolute left-3 top-3"><Badge className="bg-bg/85 backdrop-blur">{p.finish}</Badge></span>
       </Link>
       <button onClick={() => { wish.toggle(p.slug); }} aria-pressed={liked} aria-label={liked ? 'Remove from wishlist' : 'Save to wishlist'} className="absolute right-2 top-2 h-11 w-11 grid place-items-center rounded-full bg-bg/80 backdrop-blur text-lg">{liked ? '♥' : '♡'}</button>

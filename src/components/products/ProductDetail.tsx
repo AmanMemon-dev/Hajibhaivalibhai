@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import type { Product } from '@/types';
 import { Swatch } from '@/components/ui/Swatch';
+import { ProductImage } from '@/components/products/ProductImage';
 import { Button, Badge, Chip, Skeleton, Arrow } from '@/components/ui';
 import { useSelection, useUI, useWishlist } from '@/store';
 import { materials } from '@/data/materials';
@@ -33,7 +34,7 @@ export function ProductDetail({ p }: { p: Product }) {
     <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 xl:gap-16">
       <div>
         <div className="relative aspect-[4/3] rounded overflow-hidden bg-stone border hairline">
-          {tab === 'swatch' && <Swatch swatch={sw} seed={p.id.length * 7 + p.name.length} className="h-full w-full object-cover" label={`${p.name} — ${v.label}`} />}
+          {tab === 'swatch' && (p.images.length ? <ProductImage p={p} seed={p.id.length * 7 + p.name.length} label={p.name} /> : <Swatch swatch={sw} seed={p.id.length * 7 + p.name.length} className="h-full w-full object-cover" label={`${p.name} — ${v.label}`} />)}
           {tab === 'texture' && <div className="h-full w-full overflow-hidden"><Swatch swatch={sw} seed={p.id.length * 7 + p.name.length} className="h-full w-full object-cover scale-[2.4] origin-center" label="Texture close-up" /></div>}
           {tab === '3d' && (mat && ok3d ? <Slab materialId={mat.id} /> : <div className="h-full grid place-items-center p-8 text-center text-muted text-sm">{mat ? '3D viewer is off on this device — use the swatch and texture views.' : '3D preview is not available for this product yet. Slot ready: add a GLB via `modelUrl` in the data.'}</div>)}
           <div className="absolute top-3 left-3 flex gap-2"><Badge className="bg-bg/85 backdrop-blur">{p.finish}</Badge></div>
