@@ -256,6 +256,29 @@ const productImages: Record<string, { src: string; fit: 'cover' | 'contain' }> =
   'bedding-sand': { src: '/products/sand/bedding-sand.jpg', fit: 'cover' },
   'silica-sand': { src: '/products/sand/silica-sand.jpg', fit: 'cover' },
   'washed-coarse-sand': { src: '/products/sand/coarse-sand.jpg', fit: 'cover' },
+  // Stone: stock photos (Pexels), not the actual slabs. Granite and marble types without a suitable photo keep the generated swatch.
+  'tan-brown-granite': { src: '/products/stone/tan-brown-granite.jpg', fit: 'cover' },
+  'kashmir-white-granite': { src: '/products/stone/kashmir-white-granite.jpg', fit: 'cover' },
+  'steel-grey-granite': { src: '/products/stone/steel-grey-granite.jpg', fit: 'cover' },
+  'leathered-rosa-granite': { src: '/products/stone/leathered-rosa-granite.jpg', fit: 'cover' },
+  'desert-gold-granite': { src: '/products/stone/desert-gold-granite.jpg', fit: 'cover' },
+  'carrara-white-marble': { src: '/products/stone/carrara-white-marble.jpg', fit: 'cover' },
+  'statuario-marble': { src: '/products/stone/statuario-marble.jpg', fit: 'cover' },
+  'makrana-white-marble': { src: '/products/stone/makrana-white-marble.jpg', fit: 'cover' },
+  'botticino-beige-marble': { src: '/products/stone/botticino-beige-marble.jpg', fit: 'cover' },
+  'nero-marquina-marble': { src: '/products/stone/nero-marquina-marble.jpg', fit: 'cover' },
+  'emperador-dark-marble': { src: '/products/stone/emperador-dark-marble.jpg', fit: 'cover' },
+  'crema-marfil-marble': { src: '/products/stone/crema-marfil-marble.jpg', fit: 'cover' },
+  'kota-blue-stone': { src: '/products/stone/kota-blue-stone.jpg', fit: 'cover' },
+  'jaisalmer-yellow-limestone': { src: '/products/stone/jaisalmer-yellow-limestone.jpg', fit: 'cover' },
+  'agra-red-sandstone': { src: '/products/stone/agra-red-sandstone.jpg', fit: 'cover' },
+  'dholpur-beige-sandstone': { src: '/products/stone/dholpur-beige-sandstone.jpg', fit: 'cover' },
+  'black-slate-cladding': { src: '/products/stone/black-slate-cladding.jpg', fit: 'cover' },
+  'multicolour-slate': { src: '/products/stone/multicolour-slate.jpg', fit: 'cover' },
+  'basalt-paving': { src: '/products/stone/basalt-paving.jpg', fit: 'cover' },
+  'granite-cobbles': { src: '/products/stone/granite-cobbles.jpg', fit: 'cover' },
+  'ledgestone-wall-panels': { src: '/products/stone/ledgestone-wall-panels.jpg', fit: 'cover' },
+  'honed-limestone-floor': { src: '/products/stone/honed-limestone-floor.jpg', fit: 'cover' },
   // Plumbing: official product photos from supreme.co.in and finolexpipes.com.
   'supreme-lifeline-cpvc-pipe-cts': { src: '/products/plumbing/supreme-lifeline-pipe.jpg', fit: 'contain' },
   'supreme-aqua-gold-upvc-pipe': { src: '/products/plumbing/supreme-aquagold-pipe.jpg', fit: 'contain' },
@@ -293,6 +316,8 @@ const SAND_UNIT_NOTE = '1 brass = 100 cu ft ≈ 2.83 m³';
 // Stock status for the bricks and blocks range: the two bricks are held in stock, everything else is supplied on order.
 const IN_STOCK = new Set(['red-clay-brick-class-i', 'fly-ash-brick']);
 const BRICK_BASIS = 'Typical values from the relevant IS standard, not a test report. Ask us about the strength class and current stock.';
+const STONE_BASIS = 'Typical values for this type of stone, not a test report. Colour, veining and grain vary from slab to slab, so ask us to show you the stock.';
+const STONE_CATS = new Set(['granite', 'marble', 'natural-stone']);
 const W5 = '5 years commercial, 10 years residential';
 const AGG_UNITS = ['By the tonne', 'By the truck load'];
 const SAND_UNITS = ['By the brass', 'By the tonne', 'By the truck load'];
@@ -854,7 +879,7 @@ export const products: Product[] = defs.flatMap((d) =>
       swatch, images: productImages[slugify(name)] ? [productImages[slugify(name)].src] : [], imageFit: productImages[slugify(name)]?.fit, datasheetUrl: '#', // PLACEHOLDER
     };
     const extra = brandDetails[slugify(name)];
-    const out = extra ? { ...item, ...extra } : item;
+    const out = extra ? { ...item, ...extra } : STONE_CATS.has(d.slug) ? { ...item, basis: STONE_BASIS, variants: [{ id: 'v1', label: color, colorHex: base }] } : item;
     if (d.slug !== 'bricks-blocks') return out;
     const availability = IN_STOCK.has(out.slug) ? 'In stock' : 'On order';
     return { ...out, availability, facts: [...(out.facts ?? []), ['Availability', availability]], specifications: { ...out.specifications, Availability: availability } };
