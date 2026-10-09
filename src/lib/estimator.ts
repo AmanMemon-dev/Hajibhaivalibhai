@@ -296,12 +296,12 @@ export function estimate(inp: EstimatorInput): Result {
     L2('grout', 'Tiles', 'Tile grout', r1(groutKg), 'kg', 'asian-paints-smartcare-cement-tile-grout', 'Asian Paints SmartCare Cement Tile Grout', `${inp.jointMm} mm joints`),
   );
   if (inp.paintInterior) lines.push(
-    L2('putty', 'Paint', 'Wall putty', Math.round(puttyKg), 'kg', 'wall-putty-white', 'Wall Putty (White)', `${up(puttyKg / 20)} × 20 kg bags · 2 coats`),
-    L2('intpaint', 'Paint', `Interior emulsion (${inp.coats} coats)`, r1(intPaintL), 'L', 'premium-interior-emulsion-matt', undefined, `${Math.round(intPaintArea)} m² painted area`),
+    L2('putty', 'Paint', 'Wall putty', Math.round(puttyKg), 'kg', 'nerolac-wall-putty-acrylic', 'Nerolac Wall Putty Acrylic', '2 coats'),
+    L2('intpaint', 'Paint', `Interior emulsion (${inp.coats} coats)`, r1(intPaintL), 'L', 'asian-paints-royale-luxury-emulsion', undefined, `${Math.round(intPaintArea)} m² painted area`),
   );
-  if (inp.paintExterior) lines.push(L2('extpaint', 'Paint', `Exterior paint (${inp.coats} coats)`, r1(extPaintL), 'L', 'weather-shield-exterior-paint', undefined, `${Math.round(extPaintArea)} m² façade area`));
-  lines.push(L2('primer', 'Paint', 'Primer (1 coat)', r1(primerL), 'L', 'acrylic-primer', 'Acrylic Primer'));
-  if (wpKg > 0) lines.push(L2('waterproof', 'Paint', 'Waterproof coating (terrace + wet areas)', Math.round(wpKg), 'kg', 'waterproof-coating', 'Waterproof Coating', `${Math.round(wpArea)} m² treated`));
+  if (inp.paintExterior) lines.push(L2('extpaint', 'Paint', `Exterior paint (${inp.coats} coats)`, r1(extPaintL), 'L', 'asian-paints-ace-exterior-emulsion', undefined, `${Math.round(extPaintArea)} m² façade area`));
+  lines.push(L2('primer', 'Paint', 'Primer (1 coat)', r1(primerL), 'L', 'jsw-wall-primer-interiors', 'JSW Wall Primer Interiors'));
+  if (wpKg > 0) lines.push(L2('waterproof', 'Paint', 'Waterproof coating (terrace + wet areas)', Math.round(wpKg), 'kg', 'nerolac-excel-rainguard-waterproof-primer', 'Nerolac Excel Rainguard Waterproof Primer', `${Math.round(wpArea)} m² treated`));
   lines.push(
     L2('cpvc', 'Plumbing', 'CPVC hot & cold pipe', Math.round(cpvc), 'm', 'supreme-lifeline-cpvc-pipe-cts', 'Supreme Lifeline CPVC Pipe', `${up(cpvc / 3)} × 3 m lengths`),
     L2('cpvcfit', 'Plumbing', 'CPVC fittings', fittings, 'pcs', 'supreme-lifeline-cpvc-fittings', 'Supreme Lifeline CPVC Fittings', 'elbows, tees, couplers, valves'),

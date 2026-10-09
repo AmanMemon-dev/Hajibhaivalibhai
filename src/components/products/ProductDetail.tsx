@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import type { Product } from '@/types';
 import { Swatch } from '@/components/ui/Swatch';
 import { ProductImage } from '@/components/products/ProductImage';
+import { ShadeMixer } from '@/components/products/ShadeMixer';
 import { Button, Badge, Chip, Skeleton, Arrow } from '@/components/ui';
 import { useSelection, useUI, useWishlist } from '@/store';
 import { materials } from '@/data/materials';
@@ -51,6 +52,7 @@ export function ProductDetail({ p }: { p: Product }) {
           <Button href={waLink(msg)} external variant="ghost">Ask on WhatsApp</Button>
         </div>
         <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm"><Link href={visualizeUrl(p)} className="underline underline-offset-4 hover:text-accent">See it in a 3D space <Arrow /></Link><button className="underline underline-offset-4 hover:text-accent" onClick={() => wish.toggle(p.slug)}>{wish.slugs.includes(p.slug) ? '♥ Saved' : '♡ Save for later'}</button>{p.source ? <a href={p.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-muted hover:text-accent">Manufacturer page <Arrow /></a> : p.basis ? null : <a href={p.datasheetUrl} className="underline underline-offset-4 text-muted" aria-disabled onClick={(e) => { e.preventDefault(); toast('Technical sheet is a placeholder — upload a PDF and set datasheetUrl'); }}>Technical sheet (placeholder)</a>}</div>
+        {p.tintable && <ShadeMixer p={p} />}
         <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 text-sm border-t hairline pt-6">{facts.map(([k, val]) => <div key={k}><dt className="text-xs uppercase tracking-wider text-muted">{k}</dt><dd className="mt-0.5 capitalize-first">{val}</dd></div>)}</dl>
       </div>
       <div className="lg:col-span-2"><h2 className="text-step-2 mb-5">Specifications</h2><dl className="divide-y hairline border-y hairline max-w-3xl">{Object.entries(p.specifications).map(([k, val]) => <div key={k} className="flex justify-between gap-6 py-3 text-sm"><dt className="text-muted">{k}</dt><dd className="text-right">{val}</dd></div>)}</dl><p className="hint mt-2">{p.source ? <>Details from the manufacturer’s website (<a className="underline" href={p.source.url} target="_blank" rel="noopener noreferrer">{p.source.name}</a>). Ask us for the datasheet and test certificates.</> : (p.basis ?? 'Sample specifications — confirm against the manufacturer’s datasheet.')}</p></div>

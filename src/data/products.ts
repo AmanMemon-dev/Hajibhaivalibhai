@@ -188,18 +188,19 @@ const defs: CatDef[] = [
     ],
   },
   {
-    slug: 'colours-finishes', sizes: ['1 L', '4 L', '10 L', '20 L'], io: 'Both',
-    specs: { Base: 'Water-based', Coverage: '~100–140 sq ft/L/coat', 'Dry time': 'Touch dry in 1–2 hours', Warranty: 'Per manufacturer' },
+    slug: 'colours-finishes', sizes: ['Pack sizes vary by product'], io: 'Both',
+    specs: { Brands: 'Asian Paints, Nerolac, JSW', 'Shade matching': 'Tinted to order on our machine, by shade code', Warranty: 'Per manufacturer' },
     rows: [
-      ['Premium Interior Emulsion (Matt)', 'Emulsion', 'Matte', 'Warm white', '#efe9dc', '#d6ccb8', 'solid', 'WN', 'MmN', 'Washable matt emulsion with low odour.'],
-      ['Silk Interior Emulsion', 'Emulsion', 'Satin', 'Greige', '#cfc6b8', '#b0a595', 'solid', 'WN', 'Mm', 'Soft sheen that reflects light and cleans easily.'],
-      ['Weather-shield Exterior Paint', 'Exterior', 'Matte', 'Terracotta', '#b9654a', '#8e4a34', 'solid', 'EN', 'NT', 'Weather-resistant façade paint with algae protection.'],
-      ['Textured Wall Finish', 'Texture', 'Textured', 'Sand', '#c8b69a', '#a29179', 'grain', 'WN', 'NL', 'Sand-texture finish for feature walls.'],
-      ['Wall Putty (White)', 'Putty', 'Natural', 'White', '#f1f0ec', '#d3d1c9', 'speckle', 'N', 'M', 'Cement-based putty for a smooth base.'],
-      ['Acrylic Primer', 'Primer', 'Matte', 'White', '#f4f3ef', '#d8d6ce', 'solid', 'N', 'M', 'Water-based primer for interior and exterior walls.'],
-      ['Waterproof Coating', 'Waterproofing', 'Matte', 'Grey', '#8a8d90', '#acaeb0', 'solid', 'EN', 'I', 'Flexible coating for terraces, bathrooms and tanks.'],
-      ['Metallic Decorative Paint', 'Decorative', 'Glossy', 'Champagne', '#c8b28a', '#e5d6b4', 'stripe', 'WL', 'L', 'Pearlescent finish for accent walls.'],
-      ['Sage Green Emulsion', 'Emulsion', 'Matte', 'Sage', '#9aa58c', '#7b856e', 'solid', 'WN', 'Nm', 'Muted green that brings calm to bedrooms.'],
+      ['Asian Paints Royale Luxury Emulsion', 'Emulsion', 'Soft sheen', 'Warm white', '#efe9dc', '#d6ccb8', 'solid', 'WN', 'MmN', 'Premium interior emulsion from Asian Paints with a soft sheen and Teflon surface protector.'],
+      ['Nerolac Impressions Kashmir Luxury Emulsion', 'Emulsion', 'Sheen', 'Sage', '#9aa58c', '#7b856e', 'solid', 'WN', 'Nm', '100% acrylic interior emulsion from Nerolac with a radiant sheen and a silver-ion germ-killing formula.'],
+      ['JSW Halo Majestic Interiors Matt', 'Emulsion', 'Matte', 'Greige', '#cfc6b8', '#b0a595', 'solid', 'WN', 'MmN', 'Water-based matt interior emulsion from JSW that works as paint and primer in one.'],
+      ['JSW Halo Majestic Interiors Silk', 'Emulsion', 'Silk', 'Cream', '#e6dcc4', '#c9bda2', 'solid', 'WN', 'Mm', 'Water-based silk interior emulsion from JSW with a smooth finish and stain resistance.'],
+      ['Asian Paints Ace Exterior Emulsion', 'Exterior', 'Matte', 'Terracotta', '#b9654a', '#8e4a34', 'solid', 'EN', 'NT', 'Water-based exterior emulsion from Asian Paints with a 4-year warranty and anti-algal protection.'],
+      ['Nerolac Impressions Glitter Finish', 'Decorative', 'Glittering', 'Champagne', '#c8b28a', '#e5d6b4', 'stripe', 'WL', 'L', 'Water-based metallic glitter finish from Nerolac, tintable on the Nerolac machine.'],
+      ['Nerolac Excel Texture Finish', 'Texture', 'Textured', 'White', '#e9e6df', '#c9c5ba', 'grain', 'WE', 'NL', 'Textured wall finish from Nerolac for interior and exterior feature walls.'],
+      ['Nerolac Wall Putty Acrylic', 'Putty', 'Natural', 'White', '#f1f0ec', '#d3d1c9', 'speckle', 'N', 'M', 'White acrylic wall putty from Nerolac for a smooth base before painting.'],
+      ['JSW Wall Primer Interiors', 'Primer', 'Matte', 'White', '#f4f3ef', '#d8d6ce', 'solid', 'N', 'M', 'Water-based interior primer from JSW that goes on purple and dries white.'],
+      ['Nerolac Excel Rainguard Waterproof Primer', 'Waterproofing', 'Glossy', 'Grey', '#8a8d90', '#acaeb0', 'solid', 'EN', 'I', 'Liquid-applied, fibre-reinforced waterproofing coat from Nerolac for exterior walls.'],
     ],
   },
 ];
@@ -256,6 +257,17 @@ const productImages: Record<string, { src: string; fit: 'cover' | 'contain' }> =
   'bedding-sand': { src: '/products/sand/bedding-sand.jpg', fit: 'cover' },
   'silica-sand': { src: '/products/sand/silica-sand.jpg', fit: 'cover' },
   'washed-coarse-sand': { src: '/products/sand/coarse-sand.jpg', fit: 'cover' },
+  // Colours: official pack photos from asianpaints.com, nerolac.com and jswpaints.in.
+  'asian-paints-royale-luxury-emulsion': { src: '/products/colours/asian-paints-royale-luxury-emulsion.jpg', fit: 'contain' },
+  'nerolac-impressions-kashmir-luxury-emulsion': { src: '/products/colours/nerolac-impressions-kashmir-luxury-emulsion.jpg', fit: 'contain' },
+  'jsw-halo-majestic-interiors-matt': { src: '/products/colours/jsw-halo-majestic-interiors-matt.jpg', fit: 'contain' },
+  'jsw-halo-majestic-interiors-silk': { src: '/products/colours/jsw-halo-majestic-interiors-silk.jpg', fit: 'contain' },
+  'asian-paints-ace-exterior-emulsion': { src: '/products/colours/asian-paints-ace-exterior-emulsion.jpg', fit: 'contain' },
+  'nerolac-impressions-glitter-finish': { src: '/products/colours/nerolac-impressions-glitter-finish.jpg', fit: 'contain' },
+  'nerolac-excel-texture-finish': { src: '/products/colours/nerolac-excel-texture-finish.jpg', fit: 'contain' },
+  'nerolac-wall-putty-acrylic': { src: '/products/colours/nerolac-wall-putty-acrylic.jpg', fit: 'contain' },
+  'jsw-wall-primer-interiors': { src: '/products/colours/jsw-wall-primer-interiors.jpg', fit: 'contain' },
+  'nerolac-excel-rainguard-waterproof-primer': { src: '/products/colours/nerolac-excel-rainguard-waterproof-primer.jpg', fit: 'contain' },
   // Stone: stock photos (Pexels), not the actual slabs. Granite and marble types without a suitable photo keep the generated swatch.
   'tan-brown-granite': { src: '/products/stone/tan-brown-granite.jpg', fit: 'cover' },
   'kashmir-white-granite': { src: '/products/stone/kashmir-white-granite.jpg', fit: 'cover' },
@@ -309,7 +321,7 @@ const productImages: Record<string, { src: string; fit: 'cover' | 'contain' }> =
 const PACK = '50 kg bag';
 const TMT_SIZES = ['6 mm', '8 mm', '10 mm', '12 mm', '16 mm', '20 mm and above (on order)'];
 const german = (page: string) => ({ name: 'germansteel.in', url: `https://www.germansteel.in/products/${page}` });
-type Extra = Pick<Product, 'description' | 'sizes' | 'variants' | 'facts' | 'benefits' | 'useCases' | 'source' | 'basis'> & { specifications: Record<string, string> };
+type Extra = Pick<Product, 'tintable' | 'description' | 'sizes' | 'variants' | 'facts' | 'benefits' | 'useCases' | 'source' | 'basis'> & { specifications: Record<string, string> };
 const AGG_BASIS = 'Typical values from the relevant IS / MoRTH standard, not a test report. Ask us about the stock you will receive.';
 const SAND_BASIS = 'Typical values from the relevant IS standard, not a test report. Ask us about the stock you will receive.';
 const SAND_UNIT_NOTE = '1 brass = 100 cu ft ≈ 2.83 m³';
@@ -458,6 +470,97 @@ const brandDetails: Record<string, Extra> = {
     source: { name: 'asianpaints.com', url: 'https://www.asianpaints.com/content/dam/asian_paints/products/product-information-sheets/Block-Joining-Mortar.pdf' },
   },
 
+  // ---- Colours: details from asianpaints.com, nerolac.com and jswpaints.in product pages (prices left out).
+  'asian-paints-royale-luxury-emulsion': {
+    description: "Royale Luxury Emulsion is Asian Paints' premium interior wall paint. It has a soft, smooth sheen and a Teflon surface protector for easy cleaning.",
+    sizes: ['0.5 L', '1 L', '4 L', '10 L', '20 L'], variants: [], tintable: true,
+    facts: [['Brand', 'Asian Paints'], ['Finish', 'Soft sheen'], ['Coats', '2 recommended'], ['Coverage', '270–310 sq ft/L (1st coat), 140–160 sq ft/L (2nd coat)'], ['Surface dry', 'About 30 minutes'], ['Warranty', '8 years']],
+    benefits: ['Teflon surface protector for easy cleaning and durability', 'Resists tough stains and bacteria', 'Non-toxic, lead-free, low VOC and odourless', 'Over 2,200 shades, tinted to order'],
+    useCases: ['Living rooms and bedrooms', 'Interior walls that need to be wiped clean'],
+    specifications: { Brand: 'Asian Paints', Finish: 'Soft sheen', Coats: '2 recommended', Coverage: '270–310 sq ft/L (1st coat); 140–160 sq ft/L (2nd coat)', 'Surface dry': 'About 30 minutes', Thinning: '40–45% (brush or roller); 10–20% (airless spray)', Warranty: '8 years', Shades: '2,200+' },
+    source: { name: 'asianpaints.com', url: 'https://www.asianpaints.com/paint-products/interior-wall-paints/plain-finishes/royale-luxury-emulsion.html' },
+  },
+  'nerolac-impressions-kashmir-luxury-emulsion': {
+    description: 'Nerolac Impressions Kashmir is a 100% acrylic interior emulsion with a radiant sheen. It has a germ-killing formula based on silver-ion technology.',
+    sizes: ['1 L', '4 L', '10 L', '20 L'], variants: [], tintable: true,
+    facts: [['Brand', 'Nerolac'], ['Finish', 'Sheen'], ['Coats', '2–3'], ['Coverage', '20–22 sq m/L per coat'], ['Surface dry', '30 minutes'], ['Warranty', '5 years']],
+    benefits: ['Excellent washability', 'Superior stain and dust resistance', 'Low VOC (under 50 g/L) and low odour'],
+    useCases: ['Interior walls: new and previously painted plaster, brickwork and concrete'],
+    specifications: { Brand: 'Nerolac', Type: '100% acrylic emulsion', Finish: 'Sheen', Coats: '2–3 (dark shades may need an extra coat)', Coverage: '20–22 sq m/L per coat', Thinning: '40–50% with water', 'Surface dry': '30 minutes', Recoat: 'Minimum 3–4 hours', Warranty: '5 years' },
+    source: { name: 'nerolac.com', url: 'https://www.nerolac.com/sites/default/files/2022-10/Nerolac-Impressions-PDS-Kashmir-J4611.pdf' },
+  },
+  'jsw-halo-majestic-interiors-matt': {
+    description: 'Halo Majestic Interiors Matt is a water-based acrylic emulsion for interior walls from JSW Paints. It works as both paint and primer.',
+    sizes: ['Pack sizes on request'], variants: [], tintable: true,
+    facts: [['Brand', 'JSW Paints'], ['Finish', 'Matt'], ['Endurance', '9 years, under JSW conditions']],
+    benefits: ['Anti-stain and excellent washability', 'Crack bridging', 'Germ block', 'Low VOC'],
+    useCases: ['Interior walls'],
+    specifications: { Brand: 'JSW Paints', Type: 'Water-based acrylic emulsion', Finish: 'Matt', Endurance: '9 years, under JSW conditions', Certifications: 'LEED VOC compliant, GRIHA low VOC, JIS anti-microbial, ASTM D5590, ASTM D4828' },
+    source: { name: 'jswpaints.in', url: 'https://www.jswpaints.in/product/halo-majestic-interiors-matt' },
+  },
+  'jsw-halo-majestic-interiors-silk': {
+    description: 'Halo Majestic Interiors Silk is a water-based interior emulsion from JSW Paints with a silk finish. It works as paint and primer in one.',
+    sizes: ['Pack sizes on request'], variants: [], tintable: true,
+    facts: [['Brand', 'JSW Paints'], ['Finish', 'Silk'], ['Endurance', '9 years, under JSW conditions']],
+    benefits: ['Smooth finish', 'Anti-fungal and germ block', 'Stain resistant'],
+    useCases: ['Interior walls'],
+    specifications: { Brand: 'JSW Paints', Type: 'Water-based emulsion', Finish: 'Silk', Endurance: '9 years, under JSW conditions', Certifications: 'LEED VOC compliant, GRIHA low VOC, JIS anti-microbial, ASTM D5590, ASTM D4828' },
+    source: { name: 'jswpaints.in', url: 'https://www.jswpaints.in/product/halo-majestic-interiors-silk' },
+  },
+  'asian-paints-ace-exterior-emulsion': {
+    description: 'Ace Exterior Emulsion is a water-based exterior paint from Asian Paints. It resists rain, sunlight and humidity, and stands up to fungus and algae.',
+    sizes: ['Pack sizes on request'], variants: [], tintable: true,
+    facts: [['Brand', 'Asian Paints'], ['Type', 'Water-based exterior emulsion'], ['Surface dry', '30 minutes'], ['Warranty', '4 years']],
+    benefits: ['Weather resistance against rain, sun and humidity', 'UV resistance and anti-fade technology', 'Resists fungal and algal growth, chalking and cracking'],
+    useCases: ['Exterior walls and external surfaces'],
+    specifications: { Brand: 'Asian Paints', Type: 'Water-based exterior emulsion', 'Surface dry': '30 minutes', Warranty: '4 years', Shades: '1,800+' },
+    source: { name: 'asianpaints.com', url: 'https://www.asianpaints.com/paint-products/exterior-wall-paints/ace.html' },
+  },
+  'nerolac-impressions-glitter-finish': {
+    description: 'Nerolac Impressions Glitter Finish is a water-based metallic finish with glitter. It gives a uniform metallic effect and comes in gold, silver and tintable shades.',
+    sizes: ['200 ml', '1 L'], variants: [], tintable: true,
+    facts: [['Brand', 'Nerolac'], ['Colours', 'Gold, silver and tintable'], ['Coats', '2–3'], ['Coverage', '7.4–9.3 sq m/L per coat (brush)'], ['Surface dry', 'About 30 minutes']],
+    benefits: ['Excellent washability and exterior durability', 'Resists stains, algae and fungi', 'Low VOC and non-flammable'],
+    useCases: ['Interior and exterior walls', 'Wood and metal (after priming)'],
+    specifications: { Brand: 'Nerolac', Type: 'Water-based metallic glitter finish', Colours: 'Gold, silver, tintable', Coats: '2–3', Coverage: '7.4–9.3 sq m/L per coat (brush)', 'Surface dry': 'About 30 minutes', Recoat: '4–6 hours', 'Shelf life': '24 months, unopened' },
+    source: { name: 'nerolac.com', url: 'https://www.nerolac.com/sites/default/files/2025-08/Nerolac-Corporate-Impressions-Glitter-Finish-PDS-Adapt-J5549-06.pdf' },
+  },
+  'nerolac-excel-texture-finish': {
+    description: 'Nerolac Excel Texture Finish is a textured wall finish for interior and exterior walls. It seals and strengthens porous surfaces.',
+    sizes: ['Pack sizes on request'], variants: [],
+    facts: [['Brand', 'Nerolac'], ['Type', 'Texture finish'], ['Surfaces', 'Plaster, brick, concrete']],
+    benefits: ['Seals and strengthens porous surfaces'],
+    useCases: ['Feature walls, inside and outside'],
+    specifications: { Brand: 'Nerolac', Type: 'Texture finish', Surfaces: 'Plaster, brick, concrete' },
+    source: { name: 'nerolac.com', url: 'https://www.nerolac.com/decorative-paint-products/ancillary/excel-texture-finish' },
+  },
+  'nerolac-wall-putty-acrylic': {
+    description: 'Nerolac Wall Putty Acrylic is a white, acrylic-based wall putty. It fills surface imperfections and dries faster.',
+    sizes: ['Pack sizes on request'], variants: [],
+    facts: [['Brand', 'Nerolac'], ['Type', 'Acrylic wall putty'], ['Colour', 'White']],
+    benefits: ['Easy to apply', 'Dries faster', 'Good filling of surface imperfections'],
+    useCases: ['Smooth base on interior walls before painting'],
+    specifications: { Brand: 'Nerolac', Type: 'Acrylic wall putty', Colour: 'White' },
+    source: { name: 'nerolac.com', url: 'https://www.nerolac.com/decorative-paint-products/ancillary/nerolac-wall-putty' },
+  },
+  'jsw-wall-primer-interiors': {
+    description: 'JSW Wall Primer Interiors is a water-based undercoat for interior walls. It goes on purple and dries white, so missed patches are easy to see.',
+    sizes: ['1 L', '4 L'], variants: [],
+    facts: [['Brand', 'JSW Paints'], ['Type', 'Water-based interior primer'], ['Coverage', '180–220 sq ft/L per coat'], ['Surface dry', '30 minutes'], ['Recoat', '4 hours']],
+    benefits: ['Colour-changing formula shows missed areas', 'High bonding and high opacity', 'Low VOC, no added lead or heavy metals'],
+    useCases: ['Base coat on interior masonry before the top coat'],
+    specifications: { Brand: 'JSW Paints', Type: 'Water-based interior primer', Sheen: 'Matt', Coverage: '180–220 sq ft/L per coat', 'Surface dry': '30 minutes', Recoat: '4 hours', 'Top coat': 'Within 7 days of priming' },
+    source: { name: 'jswpaints.in', url: 'https://www.jswpaints.in/preparatory-products/wall-primer/product/wall-primer-interiors' },
+  },
+  'nerolac-excel-rainguard-waterproof-primer': {
+    description: 'Excel Rainguard is a water-based, fibre-reinforced elastomeric waterproofing coat from Nerolac. It is applied as a liquid over exterior building walls.',
+    sizes: ['Pack sizes on request'], variants: [],
+    facts: [['Brand', 'Nerolac'], ['Type', 'Liquid-applied elastomeric waterproofing'], ['Use', 'Exterior building walls']],
+    benefits: ['Waterproofing with crack-bridging ability', 'Good abrasion resistance and adhesion', 'Anti-carbonation'],
+    useCases: ['Exterior walls'],
+    specifications: { Brand: 'Nerolac', Type: 'Water-based, fibre-reinforced elastomeric', Use: 'Exterior building walls' },
+    source: { name: 'nerolac.com', url: 'https://www.nerolac.com/decorative-paint-products/ancillary/excel-rainguard-primer' },
+  },
   // ---- Plumbing: details from supreme.co.in and finolexpipes.com product pages (prices left out).
   'supreme-lifeline-cpvc-pipe-cts': {
     description: 'Supreme Lifeline C-PVC pipe for hot and cold potable water, in the CTS series. Suited to uptake and downtake lines, terrace looping and concealed pipework in homes, offices and high-rise buildings.',
